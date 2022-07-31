@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
-const sha256 = require('sha256');
+const bcrypt = require('bcrypt');
 const { Artist, Owner } = require('../db/models');
 
 const signUp = async (req, res) => {
@@ -23,7 +24,7 @@ const signUp = async (req, res) => {
       const newUser = await Artist.create({
         name,
         mail,
-        pass: sha256(pass),
+        pass: await bcrypt.hash(pass, 10),
         photo,
         instagram,
         phone,
@@ -51,7 +52,7 @@ const signUp = async (req, res) => {
       const newUser = await Owner.create({
         name,
         mail,
-        pass: sha256(pass),
+        pass: await bcrypt.hash(pass, 10),
         photo,
         instagram,
         phone,
@@ -71,7 +72,7 @@ const signUp = async (req, res) => {
     }
   }
 
-  return res.sendStatus(4);
+  return res.sendStatus(401);
 };
 
 const signIn = async (req, res) => {
@@ -81,7 +82,7 @@ const signIn = async (req, res) => {
   if (pass && mail && typeUser === 'authartist') {
     try {
       const currentUser = await Artist.findOne({ where: { mail } });
-      if (currentUser && currentUser.pass === sha256(pass)) {
+      if (currentUser && (await bcrypt.compare(pass, currentUser.pass))) {
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
@@ -100,7 +101,7 @@ const signIn = async (req, res) => {
   if (pass && mail && typeUser === 'authowner') {
     try {
       const currentUser = await Owner.findOne({ where: { mail } });
-      if (currentUser && currentUser.pass === sha256(pass)) {
+      if (currentUser && (await bcrypt.compare(pass, currentUser.pass))) {
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
@@ -133,12 +134,14 @@ const signOut = async (req, res) => {
 
 const checkAuth = async (req, res) => {
   try {
-    let user = await Artist.findByPk(req.session.user.id);
-    if (!user) {
-      user = await Owner.findByPk(req.session.user.id);
-      return res.json({ id: user.id, userName: user.userName, type: 'owner' });
+    if (req.session.user.type === 'artist') {
+      const user = await Artist.findByPk(req.session.user.id);
+      return res.json({ id: user.id, name: user.name, type: 'owner' });
     }
-    return res.json({ id: user.id, userName: user.userName, type: 'artist' });
+    if (req.session.user.type === 'owner') {
+      const user = await Owner.findByPk(req.session.user.id);
+      return res.json({ id: user.id, name: user.name, type: 'artist' });
+    }
   } catch (error) {
     console.error(error);
     return res.sendStatus(500);
