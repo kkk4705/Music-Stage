@@ -16,6 +16,20 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     },
+    {
+      mail: 'obstoyatelstva@mail.ru',
+      name: 'Обстоятельства',
+      pass: await bcrypt.hash('123', 10),
+      genre: 'Indie Pop, Alternative',
+      photo: 'https://sun9-35.userapi.com/impg/iFeakWvFrAjBTlZLWL7wu3rxJZXij8MFFAXnmg/j__dinsM-l8.jpg?size=1920x1279&quality=96&sign=f0454cc64de26ac78082bd6fd5c858ec&type=album',
+      info: 'Обстоятельства — дуэт Кости Максимова и Лёни Оливанова, созданный в Чебоксарах. Это музыка романтики десятых, холодного шарма родного города и постоянной тревоги, в которой живет сегодняшняя российская молодёжь.',
+      instagram: 'obstoyatelstva',
+      phone: '+7-916-352-94-72',
+      vk: 'https://vk.com/obstoyatelstva',
+      genre_id_fs: 5,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
     ], {});
   },
   async down(queryInterface, Sequelize) {
