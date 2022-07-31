@@ -19,7 +19,6 @@ function App() {
   }, []);
 
   const user = useSelector((state) => state.user);
-
   return (
     <div>
       <Routes>
@@ -37,6 +36,7 @@ function App() {
         {user?.type === 'artist' && (
           <Route path="/personalPage" element={<PersonalPage />} />
         )}
+
         {user?.type === 'owner' && (
           <Route path="/personalPage" element={<PersonalPage />} />
         )}

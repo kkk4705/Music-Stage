@@ -25,8 +25,20 @@ router.get('/events', async (req, res) => {
     include: [{ model: Event, include: Place }, Artist],
     raw: true,
   });
-  console.log('--->', allEvents);
+  // console.log('--->', allEvents);
   res.json({ allEvents });
+});
+router.get('/event', async (req, res) => {
+  try {
+    const oneEvents = await EventStatus.findOne({
+      where: { name: res.locals.user },
+      include: [{ model: Event, include: Place }, Artist],
+      raw: true,
+    });
+    res.json({ oneEvents });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;

@@ -60,5 +60,6 @@ export const checkAuth = () => async (dispatch) => {
   if (response.status === 200) {
     const user = await response.json();
     dispatch(setUser(user));
+    console.log(user);
   }
 };

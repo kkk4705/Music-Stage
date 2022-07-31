@@ -132,6 +132,7 @@ const signOut = async (req, res) => {
 };
 
 const checkAuth = async (req, res) => {
+  console.log(req.session.user);
   try {
     if (req.session.user.type === 'artist') {
       const user = await Artist.findByPk(req.session.user.id);
