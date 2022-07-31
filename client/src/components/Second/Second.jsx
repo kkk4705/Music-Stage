@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Event() {
-  const art = useSelector((store) => store.art);
-  console.log(art[0]);
+  const event = useSelector((store) => store.event);
+  console.log(event[0]);
   return (
     <div
       style={{
@@ -12,12 +12,13 @@ export default function Event() {
         height: '130vh'
       }}
     >
-      {art.map((el) => (
+      {event.map((el) => (
         <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
           <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex h-40 d-inline-block justify-content-center">
             <div className="w-75 ps-5 ms-5 mt-5 justify-content-center" style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }}>
               <div className="textTitle fs-1 d-flex justify-content-center ps-5 ms-5 fw-semibold text-light">АФИША</div>
               <div className="textTitle fs-3 d-flex justify-content-center ps-5 ms-5 fw-lighter text-light">СОБЫТИЙ</div>
+
               <div className="d-flex flex-row mt-5 justify-content-around">
                 <div className="card w-25 opacity-75 d-flex justify-content-space-around">
                   <div>

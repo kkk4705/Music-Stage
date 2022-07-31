@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Third.module.css';
-import { addArtThunk } from '../../redux/actions/allArtistsAction';
+// import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import OneArtist from './OneArtist';
 import 'antd/dist/antd.min.css';
 
 export default function Third() {
   const art = useSelector((store) => store.art);
+  const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(addArtThunk());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(addArtThunk());
+  // }, []);
+
+  const changeHandler = (e) => {
+    setInput(e.target.value);
+  };
 
   return (
     <div
@@ -28,11 +33,11 @@ export default function Third() {
             <div className="d-flex flex-column h-25 justify-content-around ">
               <p className={`${styles.text}`}>Список</p>
               <p className={`${styles.text2}`}>музыкантов </p>
-              <input type="text" className=" w-75 form-control " placeholder="Введите название" />
+              <input type="text" className=" w-75 form-control " value={input} onChange={changeHandler} placeholder="Введите название" />
             </div>
             <div className="overflow-auto mt-3" style={{ height: '450px' }}>
               <div className="d-flex flex-column ">
-                <OneArtist />
+                <OneArtist input={input} />
               </div>
             </div>
           </div>
