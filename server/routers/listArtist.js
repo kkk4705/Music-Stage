@@ -29,12 +29,16 @@ router.get('/events', async (req, res) => {
   res.json({ allEvents });
 });
 router.get('/event', async (req, res) => {
-  console.log('-1---->>>>', req.session.user, req.params);
-  // const allEvents = await EventStatus.findone({
-  //   where: { user },
-  // });
-  // console.log('--->', allEvents);
-  res.status(200);
+  try {
+    const oneEvents = await EventStatus.findOne({
+      where: { name: res.locals.user },
+      include: [{ model: Event, include: Place }, Artist],
+      raw: true,
+    });
+    res.json({ oneEvents });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;

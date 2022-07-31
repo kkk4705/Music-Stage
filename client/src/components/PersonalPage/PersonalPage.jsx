@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import { oneEventThunk } from '../../redux/actions/allEventsAction';
 import Tabses from './Table/Table';
@@ -25,13 +26,12 @@ export default function PersonalPage() {
   const user = useSelector((store) => store.user);
   const event = useSelector((store) => store.event);
   // const { number, name, type } = user;
-  const artist = arts[1];
-
+  const artist = event.filter((elem) => elem.id === user.id)[0];
+  console.log(artist);
   const dispatch = useDispatch();
-  console.log(event);
   useEffect(() => {
     dispatch(addArtThunk());
-    dispatch(oneEventThunk(1));
+    dispatch(oneEventThunk());
   }, []);
   // {id: 4, name: 'Bearthooth', type: 'artist'}
   // id: 4
@@ -52,12 +52,14 @@ export default function PersonalPage() {
             <div className="d-flex flex-column justify-content-around">
               <div className="avatar">
                 <div className="w-16 rounded-full">
-                  <img src={artist?.photo} alt="567" />
+                  <img src={artist['Artist.photo']} alt="567" />
                 </div>
               </div>
             </div>
             <div className="d-flex fw-lighter">Жанр:</div>
-            <div className="">{artist?.genre}</div>
+            <Link to="/">
+              <div className="">{artist['Artist.genre']}</div>
+            </Link>
           </div>
 
           <div className="p-2 flex-fill  ms-5 fs-4 fw-bold">{artist?.name}</div>
@@ -90,7 +92,7 @@ export default function PersonalPage() {
             </div>
           </div>
           <div className="w-75 d-flex flex-column p-3 =">
-            <Tabses />
+            <Tabses info={artist} />
           </div>
 
           <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">

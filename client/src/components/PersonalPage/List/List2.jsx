@@ -1,35 +1,37 @@
-import {
-  Avatar, Divider, List, Skeleton
-} from 'antd';
 import React, { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import 'antd/dist/antd.min.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTrackThunk } from '../../../redux/actions/getTrack';
 
-function Lists({ info }) {
-  console.log(info);
+function Lists2() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTrackThunk());
+  }, []);
+  const track = useSelector((store) => store.track);
+  console.log(track);
+
   return (
     <ul className="list-group list-group-flush ">
       <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent">
         <div className="avatar">
           <div className="w-10 me-4 rounded-full">
-            <img src={info['Event.photo']} alt="..." />
+            <img src="https://placeimg.com/192/192/people" alt="..." />
           </div>
         </div>
         <div className="ms-2 me-auto">
-          <div className="fw-bold">{info['Event.Place.name']}</div>
-          {info['Event.Place.location']}
+          <div className="fw-bold">Бар</div>
+          его описание
         </div>
         <div className="me-auto">
-          <div className="">
-            {info['Event.name']}
-          </div>
+          <div className="">Ивент</div>
         </div>
         <div className="me-auto">
-          <div className="">{(info.status === null) ? 0 : 1}</div>
+          <div className="">Статус</div>
         </div>
         <div className="me-auto">
-          <div className="">{info['Event.date']}</div>
+          <div className="">Дата</div>
         </div>
 
         <hr />
@@ -40,4 +42,4 @@ function Lists({ info }) {
   );
 }
 
-export default Lists;
+export default Lists2;
