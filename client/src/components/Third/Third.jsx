@@ -12,6 +12,7 @@ export default function Third() {
   useEffect(() => {
     dispatch(addArtThunk());
   }, []);
+  console.log(art);
 
   return (
     <div style={{

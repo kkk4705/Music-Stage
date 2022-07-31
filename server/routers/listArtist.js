@@ -5,11 +5,8 @@ const {
 } = require('../db/models');
 
 router.get('/', async (req, res) => {
-  const allArtists = await EventStatus.findAll({
-    include: [{ model: Event, include: Place }, Artist],
-    raw: true,
-  });
-  // ('--->', allArtists);
+  const allArtists = await Artist.findAll({ raw: true });
+  // console.log('--->', allEvents);
   res.json({ allArtists });
 });
 

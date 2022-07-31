@@ -25,6 +25,7 @@ export default function PersonalPage() {
   const handleClose = () => setOpen(false);
   const art = useSelector((store) => store.art);
   const dispatch = useDispatch();
+  console.log(art);
 
   useEffect(() => {
     dispatch(addArtThunk());
@@ -44,15 +45,15 @@ export default function PersonalPage() {
               <div className="d-flex flex-column justify-content-around">
                 <div className="avatar">
                   <div className="w-16 rounded-full">
-                    <img src={el['Artist.photo']} alt="567" />
+                    <img src={el.photo} alt="567" />
                   </div>
                 </div>
               </div>
               <div className="d-flex fw-lighter">Жанр:</div>
-              <div className="">{el['Artist.genre']}</div>
+              <div className="">{el.genre}</div>
             </div>
 
-            <div className="p-2 flex-fill  ms-5 fs-4 fw-bold">{el['Artist.name']}</div>
+            <div className="p-2 flex-fill  ms-5 fs-4 fw-bold">{el.name}</div>
 
             <div className="avatar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
               <img src="././black2logo.png" alt="logo" />
@@ -64,25 +65,24 @@ export default function PersonalPage() {
           <div className="d-flex h-75 justify-content-between">
             <div className="d-flex w-50 flex-column justify-content-between px-5">
               <div className="d-flex m-3" />
-              <div className="d-flex text-center ">{el['Artist.info']}</div>
+              <div className="d-flex text-center ">{el.info}</div>
               <div className="d-flex " />
 
               <div className="d-flex justify-content-center mb-3 mt-3 flex-row ">
                 <div className="ms-1 ">
-                  <a href={el['Artist.vk']}><img src="././png/002-vkontakte.png" style={{ width: '20px' }} alt="logo" /></a>
+                  <a href={el.vk}><img src="././png/002-vkontakte.png" style={{ width: '20px' }} alt="logo" /></a>
                 </div>
                 <div className=" ms-2 ">
-                  <a href={el['Artist.instagram']}><img src="././png/003-instagram.png" style={{ width: '20px' }} alt="logo" /></a>
+                  <a href={el.instagram}><img src="././png/003-instagram.png" style={{ width: '20px' }} alt="logo" /></a>
                 </div>
                 <div className=" ms-2 ">
-                  <a href={el['Artist.mail']}><img src="././png/004-mail.png" style={{ width: '20px' }} alt="logo" /></a>
+                  <a href={el.mail}><img src="././png/004-mail.png" style={{ width: '20px' }} alt="logo" /></a>
                 </div>
               </div>
             </div>
             <div className="w-75 d-flex flex-column p-3 =">
               <Tabses />
             </div>
-
             <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
               <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
@@ -92,7 +92,6 @@ export default function PersonalPage() {
                 <button type="submit" className="btn bg-transparent rounded-0 my-3">Добавить</button>
               </div>
             </div>
-
           </div>
         </div>
       ))}
