@@ -1,4 +1,3 @@
-import './App.css';
 import First from './components/First/First';
 import Fourth from './components/Fourth/Fourth';
 import PersonalPage from './components/PersonalPage/PersonalPage';
