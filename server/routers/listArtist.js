@@ -25,8 +25,17 @@ router.get('/events', async (req, res) => {
     include: [{ model: Event, include: Place }, Artist],
     raw: true,
   });
-  console.log('--->', allEvents);
+  // console.log('--->', allEvents);
   res.json({ allEvents });
+});
+router.get('/event', async (req, res) => {
+  const user = res.locals.userName;
+  console.log('-1---->>>>', user);
+  // const allEvents = await EventStatus.findone({
+  //   where: { user },
+  // });
+  // console.log('--->', allEvents);
+  res.json({ user });
 });
 
 module.exports = router;

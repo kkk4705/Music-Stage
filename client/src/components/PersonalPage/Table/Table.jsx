@@ -12,10 +12,6 @@ import Edit from '../Edit/Edit';
 const { TabPane } = Tabs;
 
 function Tabses() {
-  const onChange = (key) => {
-    console.log(key);
-  };
-
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -27,7 +23,7 @@ function Tabses() {
   };
 
   return (
-    <Tabs defaultActiveKey="1" onChange={onChange} className="overflow-auto">
+    <Tabs defaultActiveKey="1" className="overflow-auto">
       <TabPane tab="Заявки" key="1">
         <Lists />
       </TabPane>
