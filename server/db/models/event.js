@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     place_id: DataTypes.INTEGER,
     date: DataTypes.STRING,
     link: DataTypes.TEXT,
+    photo: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Event',
