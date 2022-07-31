@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ModalArtist from '../Third/ModalArtist';
 
 export default function Event() {
   const art = useSelector((store) => store.art);
-  console.log(art[0]);
+  // console.log(art[0]);
   return (
     <div
       style={{
@@ -41,7 +42,7 @@ export default function Event() {
           </div>
           <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex ps-0 p-5 h-75 mt-5 mb-5 d-inline-block justify-content-center">
             <div className="ONO col-8 d-flex justify-content-center mt-5 mb-5">
-              <div className="card rounded-5 mt-5 text-bg-dark d-flex h-50 w-75 ms-0 d-flex align-content-stretch flex-wrap">
+              <div className="card rounded-5 mt-5 text-bg-dark d-flex h-50 w-75 ms-0 d-flex align-content-center">
                 <div className="card-text d-flex justify-content-center fs-1 fw-lighter m-0 mt-0 mb-5 fs-1">
                   <div className="card-title d-flex fs-1 fw-lighter m-0 mt-4 fs-1 text-break">{el['Event.name']}</div>
                   <img src={el['Event.photo']} className="d-flex rounded-5 card-img w-100 h-100 opacity-50 position-absolute" alt="..." />
@@ -65,6 +66,9 @@ export default function Event() {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="d-flex justify-content-center align-items-center">
+                <ModalArtist />
               </div>
             </div>
           </div>
