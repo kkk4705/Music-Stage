@@ -1,67 +1,50 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Tabs } from 'antd';
+import { Button, Drawer, } from 'antd';
+import React, { useState } from 'react';
+import { SearchOutlined } from '@ant-design/icons';
+import {
+  FileAddOutlined,
+} from '@ant-design/icons';
+import Add from '../Add/Add';
 import Lists from '../List/List';
+import Edit from '../Edit/Edit';
 
-function TabPanel(props) {
-  const {
-    children, value, index, ...other
-  } = props;
+const { TabPane } = Tabs;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-//   children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+function Tabses() {
+  const onChange = (key) => {
+    console.log(key);
   };
-}
 
-export default function Tabses() {
-  const [value, setValue] = React.useState(0);
+  const [visible, setVisible] = useState(false);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Заявки" {...a11yProps(0)} />
-          <Tab label="Треки" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
+    <Tabs defaultActiveKey="1" onChange={onChange} className="overflow-auto">
+      <TabPane tab="Заявки" key="1">
         <Lists />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        2
-      </TabPanel>
-    </Box>
+      </TabPane>
+      <TabPane tab="Треки" key="2">
+        <Lists />
+      </TabPane>
+      <TabPane tab="Добавить трек" key="3">
+        <Add />
+      </TabPane>
+      <TabPane
+        tab="Редактировать"
+        key="4"
+      >
+        <Edit />
+      </TabPane>
+    </Tabs>
   );
 }
+
+export default Tabses;
