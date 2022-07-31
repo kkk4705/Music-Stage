@@ -23,6 +23,7 @@ export default function Event() {
         height: '130vh'
       }}
     >
+
       <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
         <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex h-40 d-inline-block justify-content-center">
           <div className="w-75 ps-5 ms-5 mt-5 justify-content-center" style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }}>
@@ -37,6 +38,26 @@ export default function Event() {
                     <option value="2">FESTIVAL</option>
                     <option value="3">CONCERT</option>
                   </select>
+
+      {art.map((el) => (
+        <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
+          <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex h-40 d-inline-block justify-content-center">
+            <div className="w-75 ps-5 ms-5 mt-5 justify-content-center" style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }}>
+              <div className="textTitle fs-1 d-flex justify-content-center ps-5 ms-5 fw-semibold text-light">АФИША</div>
+              <div className="textTitle fs-3 d-flex justify-content-center ps-5 ms-5 fw-lighter text-light">СОБЫТИЙ</div>
+              <div className="d-flex flex-row mt-5 justify-content-around">
+                <div className="card w-25 opacity-75 d-flex justify-content-space-around">
+                  <div>
+                    <select defaultValue="selected" className="form-select" aria-label="Default select example">
+                      <option value="selected">EVENT TYPE</option>
+                      <option value="1">SITE OPENING</option>
+                      <option value="2">FESTIVAL</option>
+                      <option value="3">CONCERT</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input-group d-flex justify-content-center w-25 h-25">
+                  <input type="text" className="form-control opacity-75 d-flex justify-content-center w-25 h-15 rounded-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
                 </div>
               </div>
               <div className="input-group d-flex justify-content-center w-25 h-25">
