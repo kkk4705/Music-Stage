@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     include: [{ model: Event, include: Place }, Artist],
     raw: true,
   });
-  console.log('--->', allArtists);
+  // ('--->', allArtists);
   res.json({ allArtists });
 });
 

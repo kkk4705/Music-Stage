@@ -1,7 +1,7 @@
 import { Modal } from 'antd';
 import 'antd/dist/antd.min.css';
 import React, { useState } from 'react';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import ModalPage from './ModalPage';

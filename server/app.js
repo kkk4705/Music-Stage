@@ -6,12 +6,18 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 // const artistRouter = require('./routes/artist-page.router');
 const listArtist = require('./routers/listArtist');
+const authRouter = require('./routers/auth.router');
 // const upload = require('./routers/upload');
 
 const app = express();
-app.use(cors());
 const PORT = 3030 || 3001;
 
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+);
 app.use(express.static(path.join(__dirname, 'music')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,6 +36,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
 // app.use('/upload', upload);
 
