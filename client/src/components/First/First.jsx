@@ -1,13 +1,17 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './First.module.css';
 import Button from './ui/Button/Button';
 import FormAuth from './ui/FormAuth/FormAuth';
 import FormReg from './ui/FormReg/FormReg';
 
 export default function First() {
+  // useState для перерендера формы
   const [form, setForm] = useState('main');
+
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.headdiv}>
@@ -15,6 +19,11 @@ export default function First() {
       <div className={styles.formdiv}>
         <div className={styles.formdivlogo}>
           <img src="/blacklogo.png" alt="blacklogo" />
+          {/* {user &&
+          <div>
+            <p>Привет, {'user'}</p>
+            <a href="#">Выйти</a>
+          </div>} */}
         </div>
         <hr className={styles.hrline} />
 
@@ -22,8 +31,8 @@ export default function First() {
         {form === 'main' && (
           <div className={styles.formdivbody}>
             <h3>Платформа для музыкантов и организаторов мероприятий</h3>
-            <Button funcOnClick={() => setForm('artist')} value="artist" type="button" body="МУЗЫКАНТ" />
-            <Button funcOnClick={() => setForm('owner')} value="owner" type="button" body="ОРГАНИЗАТОР" />
+            <Button funcOnClick={() => setForm('authartist')} type="button" body="МУЗЫКАНТ" />
+            <Button funcOnClick={() => setForm('authowner')} type="button" body="ОРГАНИЗАТОР" />
             <p>листай вниз, чтобы увидеть афишу</p>
           </div>
         )}
