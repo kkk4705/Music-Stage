@@ -28,7 +28,6 @@ export default function Event() {
       }}
     >
 
-
       {/* <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
 
       <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
