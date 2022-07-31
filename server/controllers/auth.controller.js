@@ -71,7 +71,6 @@ const signUp = async (req, res) => {
       return res.sendStatus(500);
     }
   }
-
   return res.sendStatus(401);
 };
 

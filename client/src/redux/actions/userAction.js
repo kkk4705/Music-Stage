@@ -41,8 +41,6 @@ export const signIn = (payload, navigate) => async (dispatch) => {
     const user = await response.json();
     dispatch(setUser(user));
     navigate('/personalPage');
-  } else {
-    navigate('/');
   }
 };
 

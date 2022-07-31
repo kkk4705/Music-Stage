@@ -12,6 +12,9 @@ export default function First() {
   const [form, setForm] = useState('main');
 
   const user = useSelector((state) => state.user);
+  
+  const dispatch = useDispatch();
+
 
   return (
     <div className={styles.headdiv}>
