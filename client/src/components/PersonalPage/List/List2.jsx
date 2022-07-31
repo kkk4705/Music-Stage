@@ -33,10 +33,8 @@ function Lists2() {
         <div className="me-auto">
           <div className="">Дата</div>
         </div>
-
         <hr />
       </li>
-
       <hr />
     </ul>
   );
