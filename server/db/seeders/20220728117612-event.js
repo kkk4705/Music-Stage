@@ -7,6 +7,7 @@ module.exports = {
       place_id: 1,
       date: '30.07.2022',
       link: 'https://vk.com/ionosfear_30_07_22',
+      photo: 'https://sun9-51.userapi.com/impf/c836522/v836522042/58813/0ibdkbK0BoM.jpg?size=2560x1883&quality=96&sign=72da9669959cdccda39f6552cc79c167&type=album',
       createdAt: new Date(),
       updatedAt: new Date(),
     },

@@ -5,12 +5,12 @@ import Input from '../Input/Input';
 import Select from '../Select/Select';
 import Textarea from '../Textarea/Textarea';
 import Button from '../Button/Button';
-// import { signUp } from '../../../../redux/actions/allArtistsAction';
+import { signUp } from '../../../../redux/actions/userAction';
 
 export default function FormReg({ typeUser }) {
   const [userReg, setUserReg] = useState({
     name: '',
-    email: '',
+    mail: '',
     pass: '',
     photo: '',
     instagram: '',
@@ -24,20 +24,20 @@ export default function FormReg({ typeUser }) {
   const navigate = useNavigate();
 
   const changeHandler = (e) => {
-    console.log(userReg);
+    // console.log(userReg);
     setUserReg((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
-    // dispatch(signUp(userReg, navigate));
+    dispatch(signUp(userReg, navigate));
   };
 
   return (
     <form>
       <Input onChange={changeHandler} type="text" name="name" placeholder="Имя" />
-      <Input onChange={changeHandler} type="email" name="email" placeholder="Электронная почта" />
+      <Input onChange={changeHandler} type="mail" name="mail" placeholder="Электронная почта" />
       <Input onChange={changeHandler} type="password" name="pass" placeholder="Пароль" />
       <Input onChange={changeHandler} type="url" name="photo" placeholder="Фото" />
       <Input onChange={changeHandler} type="text" name="instagram" placeholder="Instagram" />
@@ -47,6 +47,7 @@ export default function FormReg({ typeUser }) {
           <Input onChange={changeHandler} type="text" name="vk" placeholder="ВКонтакте" />
           <Input onChange={changeHandler} type="text" name="genre" placeholder="Жанр" />
           <Select
+            onChange={changeHandler}
             name="genre_id_fs"
             placeholder="Жанр для поиска"
             options={[
@@ -66,7 +67,7 @@ export default function FormReg({ typeUser }) {
       {typeUser === 'owner' && (
         <Input onChange={changeHandler} type="text" name="telegram" placeholder="Telegram" />
       )}
-      <Textarea name="info" placeholder="Короткое описание" />
+      <Textarea onChange={changeHandler} name="info" placeholder="Короткое описание" />
       <Button funcOnClick={() => submitHandler()} type="button" body="ОТПРАВИТЬ" />
     </form>
   );
