@@ -1,29 +1,47 @@
-import React from 'react';
-import styles from './Third.module.css';
-import ModalArtist from './ModalArtist';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Modal } from 'antd';
+import 'antd/dist/antd.min.css';
+import ModalPage from './ModalPage';
+import { addModalThunk } from '../../redux/actions/oneArtistAction';
 
-export default function OneArtist({
-  photo, id, name, genre
-}) {
+export default function OneArtist({ id }) {
+  const art = useSelector((store) => store.art);
+  const [visible, setVisible] = useState(false);
+  const dispatch = useDispatch();
+
+  const clickHandler = () => {
+    setVisible(true);
+    dispatch(addModalThunk(id));
+  };
+
   return (
-
-    <div className="card text-bg-ligth overflow-scroll">
-      {photo && (
-        <div>
-          <div className={`${styles.group}`}>
-            <img src={photo} className="card-img  h-25" alt={name} />
-          </div>
-          <div className="card-img-overlay d-flex flex-column justify-content-between">
+    <div onClick={clickHandler}>
+      {art.map((el) => (
+        <div className="card text-bg-ligth ">
+          <div>
             <div>
-              <ModalArtist />
+              <img src={el.photo} className="card-img  h-25" alt={el.name} />
             </div>
-            <div>
-              <h5 className="card-title fw-bolder text-white fs-3">{name}</h5>
-              <p className="card-text text-white fs-5">{genre}</p>
+            <div className="card-img-overlay d-flex flex-column justify-content-end">
+              <Modal
+                centered
+                visible={visible}
+                footer={null}
+                onCancel={() => setVisible(false)}
+                width={1100}
+              >
+                <ModalPage />
+              </Modal>
+
+              <div>
+                <h5 className="card-title fw-bolder text-white fs-3">{el.name}</h5>
+                <p className="card-text text-white fs-5">{el.genre}</p>
+              </div>
             </div>
           </div>
         </div>
-      )}
+      ))}
     </div>
   );
 }
