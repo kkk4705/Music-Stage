@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function Event() {
   const art = useSelector((store) => store.art);
-  console.log(art[0]);
+
+  console.log(art);
   return (
     <div
       style={{
