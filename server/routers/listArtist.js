@@ -44,13 +44,21 @@ router.post('/find', async (req, res) => {
 
 // НЕ ВЫВОДЯТСЯ ДАННЫЕ ИЗ БД
 router.get('/events', async (req, res) => {
+  const allEvents = await EventStatus.findAll({
+    include: [{ model: Event, include: Place }, Artist],
+    raw: true,
+  });
+  // console.log('--->', allEvents);
+  res.json({ allEvents });
+});
+router.get('/event', async (req, res) => {
   try {
-    const allEvents = await EventStatus.findAll({
+    const oneEvents = await EventStatus.findOne({
+      where: { name: res.locals.user },
       include: [{ model: Event, include: Place }, Artist],
       raw: true,
     });
-    console.log('--->', allEvents);
-    res.json({ allEvents });
+    res.json({ oneEvents });
   } catch (error) {
     console.log(error);
   }

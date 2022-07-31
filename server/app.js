@@ -6,6 +6,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const listArtist = require('./routers/listArtist');
 const authRouter = require('./routers/auth.router');
+const tracks = require('./routers/tracks.router');
 // const upload = require('./routers/upload');
 
 const app = express();
@@ -35,8 +36,15 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+app.use((req, res, next) => {
+  res.locals.user = req.session?.user;
+  console.log('-2---->>>>', res.locals.user);
+  next();
+});
+
 app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
+app.use('/tracks', tracks);
 // app.use('/upload', upload);
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });
