@@ -22,8 +22,8 @@ export default function Event() {
               <div className="d-flex flex-row mt-5 justify-content-around">
                 <div className="card w-25 opacity-75 d-flex justify-content-space-around">
                   <div>
-                    <select className="form-select" aria-label="Default select example">
-                      <option selected>EVENT TYPE</option>
+                    <select defaultValue="selected" className="form-select" aria-label="Default select example">
+                      <option value="selected">EVENT TYPE</option>
                       <option value="1">SITE OPENING</option>
                       <option value="2">FESTIVAL</option>
                       <option value="3">CONCERT</option>
