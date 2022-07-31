@@ -24,7 +24,7 @@ export default function FormReg({ typeUser }) {
   const navigate = useNavigate();
 
   const changeHandler = (e) => {
-    // console.log(userReg);
+
     setUserReg((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 

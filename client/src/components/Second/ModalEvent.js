@@ -1,11 +1,12 @@
 import { Modal } from 'antd';
 import 'antd/dist/antd.min.css';
 import React, { useState } from 'react';
+
 import 'antd/dist/antd.min.css';
+
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import ModalPage from './ModalPage';
-// import PersonalPage from '../PersonalPage/PersonalPage';
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -22,7 +23,6 @@ function App() {
         width={1200}
       >
         <ModalPage />
-        {/* <PersonalPage /> */}
       </Modal>
     </>
   );

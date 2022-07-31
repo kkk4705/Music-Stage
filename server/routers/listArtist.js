@@ -29,13 +29,12 @@ router.get('/events', async (req, res) => {
   res.json({ allEvents });
 });
 router.get('/event', async (req, res) => {
-  const user = res.locals.userName;
-  console.log('-1---->>>>', user);
+  console.log('-1---->>>>', req.session.user, req.params);
   // const allEvents = await EventStatus.findone({
   //   where: { user },
   // });
   // console.log('--->', allEvents);
-  res.json({ user });
+  res.status(200);
 });
 
 module.exports = router;

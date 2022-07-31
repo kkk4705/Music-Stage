@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './First.module.css';
 import Button from './ui/Button/Button';
 import FormAuth from './ui/FormAuth/FormAuth';
@@ -11,7 +11,10 @@ export default function First() {
   // useState для перерендера формы
   const [form, setForm] = useState('main');
 
+  const user = useSelector((state) => state.user);
+  
   const dispatch = useDispatch();
+
 
   return (
     <div className={styles.headdiv}>
@@ -19,11 +22,15 @@ export default function First() {
       <div className={styles.formdiv}>
         <div className={styles.formdivlogo}>
           <img src="/blacklogo.png" alt="blacklogo" />
-          {/* {user &&
-          <div>
-            <p>Привет, {'user'}</p>
-            <a href="#">Выйти</a>
-          </div>} */}
+          {user && (
+            <p>
+              Привет,
+              {' '}
+              <a href="/personalPage">{user.name}</a>
+              <br />
+              <a href="/logout">Выйти</a>
+            </p>
+          )}
         </div>
         <hr className={styles.hrline} />
 
