@@ -1,18 +1,33 @@
+<<<<<<< HEAD
+import React, { useEffect, useState } from 'react';
+=======
 import React, { useEffect, useCallback } from 'react';
+>>>>>>> df254981c0f02070f4c7430d36f12c9d279f2bcb
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Third.module.css';
-import { addArtThunk } from '../../redux/actions/allArtistsAction';
+// import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import OneArtist from './OneArtist';
 import 'antd/dist/antd.min.css';
 
 export default function Third() {
   const art = useSelector((store) => store.art);
+  const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
+  // useEffect(() => {
+  //   dispatch(addArtThunk());
+  // }, []);
+
+  const changeHandler = (e) => {
+    setInput(e.target.value);
+  };
+=======
   useEffect(() => {
     dispatch(addArtThunk());
   }, []);
   console.log(art);
+>>>>>>> df254981c0f02070f4c7430d36f12c9d279f2bcb
 
   return (
     <div style={{
@@ -28,18 +43,12 @@ export default function Third() {
             <div className="d-flex flex-column h-50 justify-content-around my-4">
               <p className={`${styles.text}`}>Список</p>
               <p className={`${styles.text2}`}>музыкантов </p>
-              <input type="text" className=" w-75 form-control " placeholder="Введите название" />
+              <input type="text" className=" w-75 form-control " value={input} onChange={changeHandler} placeholder="Введите название" />
             </div>
-            <div className="d-flex m-3">
-              {art.map((el) => (
-                <OneArtist
-                  key={el.id}
-                  photo={el['Artist.photo']}
-                  id={el.id}
-                  name={el['Artist.name']}
-                  genre={el['Artist.genre']}
-                />
-              ))}
+            <div className="overflow-auto mt-3" style={{ height: '450px' }}>
+              <div className="d-flex flex-column ">
+                <OneArtist input={input} />
+              </div>
             </div>
 
           </div>
