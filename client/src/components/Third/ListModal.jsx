@@ -1,16 +1,11 @@
-import {
-  Avatar, Divider, List, Skeleton
-} from 'antd';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.min.css';
-
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 
 function Lists() {
   const art = useSelector((store) => store.art);
+  console.log('-->', art);
   const dispatch = useDispatch();
 
   useEffect(() => {
