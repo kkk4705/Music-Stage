@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Third.module.css';
 import OneArtist from './OneArtist';
@@ -10,9 +10,13 @@ export default function Third() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(addArtThunk());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(addArtThunk());
+  // }, []);
+
+  const changeHandler = (e) => {
+    setInput(e.target.value);
+  };
 
   return (
     <div
