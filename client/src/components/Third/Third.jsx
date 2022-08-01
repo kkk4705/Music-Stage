@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
-=======
-import React, { useEffect, useCallback } from 'react';
->>>>>>> df254981c0f02070f4c7430d36f12c9d279f2bcb
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Third.module.css';
 // import { addArtThunk } from '../../redux/actions/allArtistsAction';
@@ -14,7 +10,6 @@ export default function Third() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-<<<<<<< HEAD
   // useEffect(() => {
   //   dispatch(addArtThunk());
   // }, []);
@@ -22,12 +17,6 @@ export default function Third() {
   const changeHandler = (e) => {
     setInput(e.target.value);
   };
-=======
-  useEffect(() => {
-    dispatch(addArtThunk());
-  }, []);
-  console.log(art);
->>>>>>> df254981c0f02070f4c7430d36f12c9d279f2bcb
 
   return (
     <div style={{
