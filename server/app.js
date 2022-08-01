@@ -7,6 +7,8 @@ const FileStore = require('session-file-store')(session);
 const listArtist = require('./routers/listArtist');
 const authRouter = require('./routers/auth.router');
 const tracks = require('./routers/tracks.router');
+const types = require('./routers/type.router');
+const search = require('./routers/search.router');
 // const upload = require('./routers/upload');
 
 const app = express();
@@ -45,6 +47,9 @@ app.use((req, res, next) => {
 app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
 app.use('/tracks', tracks);
+app.use('/types', types);
+app.use('/search', search);
+
 // app.use('/upload', upload);
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });
