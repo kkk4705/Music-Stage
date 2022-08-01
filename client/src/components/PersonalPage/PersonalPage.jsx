@@ -94,13 +94,24 @@ export default function PersonalPage() {
               <Tabses info={artist} />
             </div>
 
-            <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div
+              style={{ backgroundColor: `rgb(${180}, ${180}, ${180})`, }}
+              className="offcanvas offcanvas-end"
+              data-bs-scroll="true"
+              tabIndex="-1"
+              id="offcanvasWithBothOptions"
+              aria-labelledby="offcanvasWithBothOptionsLabel"
+            >
               <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
+                <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Меню навигации</h5>
+                <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" />
               </div>
-              <div className="offcanvas-body">
-                <button type="submit" className="btn bg-transparent rounded-0 my-3">Добавить</button>
+              <div className="offcanvas-body ">
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Главная</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Афиша событий</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Список музыкантов</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Карта площадок</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Личный кабинет</button>
               </div>
             </div>
 

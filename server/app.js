@@ -7,7 +7,7 @@ const FileStore = require('session-file-store')(session);
 const listArtist = require('./routers/listArtist');
 const authRouter = require('./routers/auth.router');
 const tracks = require('./routers/tracks.router');
-// const upload = require('./routers/upload');
+const upload = require('./routers/upload');
 
 const app = express();
 const PORT = 3030 || 3001;
@@ -18,7 +18,7 @@ app.use(
     credentials: true,
   }),
 );
-app.use(express.static(path.join(__dirname, 'music')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -45,6 +45,6 @@ app.use(session(sessionConfig));
 app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
 app.use('/tracks', tracks);
-// app.use('/upload', upload);
+app.use('/upload', upload);
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });

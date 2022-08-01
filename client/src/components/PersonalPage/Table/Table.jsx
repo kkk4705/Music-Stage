@@ -29,11 +29,13 @@ function Tabses({ info }) {
         <Lists info={info} />
       </TabPane>
       <TabPane tab="Треки" key="2">
-        <Lists2 />
-      </TabPane>
-      <TabPane tab="Добавить трек" key="3">
         <Add />
+        <Lists2 />
+
       </TabPane>
+      {/* <TabPane tab="Добавить трек" key="3">
+        <Add />
+      </TabPane> */}
       <TabPane
         tab="Редактировать"
         key="4"
