@@ -3,7 +3,7 @@ const {
   Artist, Event, EventStatus, Place,
 } = require('../db/models');
 
-router.get('/search', async (req, res) => {
+router.get('/', async (req, res) => {
   const allEvents = await EventStatus.findAll({
     include: [{ model: Event, include: Place }, Artist],
     raw: true,

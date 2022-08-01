@@ -11,7 +11,7 @@ export default function Card() {
   }, []);
   const event = useSelector((store) => store.event);
   // const eventType = useSelector((store) => store.one);
-  console.log(event);
+  // console.log(event);
 
   return (
     <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className={`cardHeight d-flex flex-column justify-content-center align-items-center mt-5${styles.cardHeight}`}>

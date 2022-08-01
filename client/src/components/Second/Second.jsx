@@ -1,21 +1,25 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
 import Card from './Card';
 import ModalEvent from './ModalEvent';
 import Select from './Select';
 import styles from './Second.module.css';
+import { getSearchThunk } from '../../redux/actions/searchAction';
 
 export default function Event() {
+  const [input, setInput] = useState('');
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(addEventThunk());
+    dispatch(getSearchThunk());
   }, []);
 
   const search = useSelector((store) => store.search);
   // const eventType = useSelector((store) => store);
-
+  console.log(search);
   return (
     <div
       id="second"
@@ -32,7 +36,7 @@ export default function Event() {
             <div className={`fontword1 fs-3 d-flex justify-content-center ps-5 ms-5 fw-lighter text-light ${styles.fontword2}`}>СОБЫТИЙ</div>
             <div className="d-flex flex-row mb-5 mt-5 justify-content-around">
               <div className="input-group d-flex justify-content-center w-25 h-25 ">
-                <input type="text" className="form-control opacity-75 d-flex justify-content-center w-25 h-15 rounded-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+                <input value={input} onChange={(e) => setInput(e.target.value)} type="text" className="form-control opacity-75 d-flex justify-content-center w-25 h-15 rounded-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
               </div>
               <Select />
             </div>
@@ -44,7 +48,12 @@ export default function Event() {
         </div>
         <div className={`overflow-auto mt-3 ${styles.over}`} style={{ height: '450px', marginTop: '75px' }}>
           <div className="d-flex flex-column ">
-            <Card />
+            {search
+              .filter(((el) => el['Event.name']
+                .toLowerCase()
+                .includes(input.toLowerCase()))).map((el) => (
+                <Card />
+              ))}
           </div>
         </div>
       </div>
