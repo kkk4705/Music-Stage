@@ -54,12 +54,16 @@ export const signOut = () => async (dispatch) => {
 };
 
 export const checkAuth = () => async (dispatch) => {
+  console.log('check auth front');
   const response = await fetch(endPoints.checkAuth(), {
     credentials: 'include',
   });
   if (response.status === 200) {
+    console.log(response);
     const user = await response.json();
     dispatch(setUser(user));
     console.log(user);
+  } else {
+    console.log('in else');
   }
 };

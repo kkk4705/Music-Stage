@@ -54,7 +54,7 @@ router.get('/events', async (req, res) => {
 router.get('/event', async (req, res) => {
   try {
     const oneEvents = await EventStatus.findOne({
-      where: { name: res.locals.user },
+      where: { name: res.locals.user.name },
       include: [{ model: Event, include: Place }, Artist],
       raw: true,
     });
