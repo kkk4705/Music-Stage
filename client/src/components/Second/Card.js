@@ -11,9 +11,9 @@ export default function Card() {
   const event = useSelector((store) => store.event);
   // const eventType = useSelector((store) => store.one);
   return (
-    <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex flex-column justify-content-center align-items-center mt-5 ">
+    <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" className="d-flex flex-column justify-content-center align-items-center mt-5 scrollspy-example">
       {event.map((el) => (
-        <div className="ONO col-8 d-flex justify-content-center align-items-center mt-5 mb-5">
+        <div id="simple-list-item-1" className="ONO col-8 d-flex justify-content-center align-items-center mt-5 mb-5">
           <div className="card rounded-5 mt-5 text-bg-dark d-flex h-100 w-100 ms-0 d-flex align-content-center">
             <div className="card-text d-flex justify-content-center fs-1 fw-lighter m-0 mt-0 mb-5 fs-1">
               <div className="card-title d-flex fs-1 fw-lighter m-0 mt-4 fs-1 text-break">{el['Event.name']}</div>
