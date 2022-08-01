@@ -29,7 +29,7 @@ export default function Third() {
             <div className="d-flex flex-column h-50 justify-content-around my-4">
               <p className={`${styles.text}`}>Список</p>
               <p className={`${styles.text2}`}>музыкантов </p>
-              <input type="text" className=" w-75 form-control " value={input} onChange={changeHandler} placeholder="Введите название" />
+              <input type="text" className=" w-75 form-control " value={input} placeholder="Введите название" />
             </div>
             <div className="overflow-auto mt-3" style={{ height: '450px' }}>
               <div className="d-flex flex-column ">
