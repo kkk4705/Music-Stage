@@ -5,6 +5,8 @@ import allEventsReducer from './allEventsReducer';
 import userReducer from './userReducer';
 import findArtistReducer from './findArtistReducer';
 import trackReducer from './trackReducer';
+import typeReducer from './typeReducer';
+import searchReducer from './searchReducer';
 
 const rootReducer = combineReducers({
   art: allArtistsReducer,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   user: userReducer,
   find: findArtistReducer,
   track: trackReducer,
+  type: typeReducer,
+  search: searchReducer,
 });
 
 export default rootReducer;

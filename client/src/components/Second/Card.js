@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
 import ModalEvent from './ModalEvent';
+import styles from './Second.module.css';
 
 export default function Card() {
   const dispatch = useDispatch();
@@ -10,10 +11,12 @@ export default function Card() {
   }, []);
   const event = useSelector((store) => store.event);
   // const eventType = useSelector((store) => store.one);
+  // console.log(event);
+
   return (
-    <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" className="d-flex flex-column justify-content-center align-items-center mt-5 scrollspy-example">
+    <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className={`cardHeight d-flex flex-column justify-content-center align-items-center mt-5${styles.cardHeight}`}>
       {event.map((el) => (
-        <div id="simple-list-item-1" className="ONO col-8 d-flex justify-content-center align-items-center mt-5 mb-5">
+        <div id="simple-list-item-1" className={`ono col-8 d-flex justify-content-center align-items-center mt-5 mb-5 ${styles.ono}`}>
           <div className="card rounded-5 mt-5 text-bg-dark d-flex h-100 w-100 ms-0 d-flex align-content-center">
             <div className="card-text d-flex justify-content-center fs-1 fw-lighter m-0 mt-0 mb-5 fs-1">
               <div className="card-title d-flex fs-1 fw-lighter m-0 mt-4 fs-1 text-break">{el['Event.name']}</div>
