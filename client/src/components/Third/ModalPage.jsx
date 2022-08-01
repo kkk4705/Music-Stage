@@ -4,13 +4,22 @@ import { Divider } from 'antd';
 import Tabses from './TableModal';
 import { addModalThunk } from '../../redux/actions/oneArtistAction';
 
-export default function PersonalPage({ id }) {
+export default function PersonalPage({ id, visible }) {
+  console.log(id);
   const one = useSelector((store) => store.one);
   const dispatch = useDispatch();
-
+  console.log(visible, id);
   useEffect(() => {
+    console.log('---->', id);
     dispatch(addModalThunk(id));
-  }, []);
+    return () => console.log('ret----', id, visible);
+  }, [visible]);
+
+  // useEffect(() => {
+  //   if (!visible) {
+
+  //   }
+  // }, []);
 
   return (
     <>
