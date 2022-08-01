@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styles from './First.module.css';
 import Button from './ui/Button/Button';
 import FormAuth from './ui/FormAuth/FormAuth';
@@ -16,18 +17,19 @@ export default function First() {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.headdiv}>
+    <div id="first" className={styles.headdiv}>
       <div className={styles.imegediv}> </div>
       <div className={styles.formdiv}>
         <div className={styles.formdivlogo}>
           <img src="/blacklogo.png" alt="blacklogo" />
           {user && (
             <p>
+              <a href="#second">second</a>
               Привет,
               {' '}
-              <a href="/personalPage">{user.name}</a>
+              <Link to="/personalPage">{user.name}</Link>
               <br />
-              <a href="/logout">Выйти</a>
+              <Link to="/logout">Выйти</Link>
             </p>
           )}
         </div>

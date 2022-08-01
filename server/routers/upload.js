@@ -7,7 +7,7 @@ router.post('/', fileMiddleware, (req, res) => {
       res.json(req.file);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 

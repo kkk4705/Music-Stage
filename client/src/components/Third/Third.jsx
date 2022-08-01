@@ -13,16 +13,16 @@ export default function Third() {
   useEffect(() => {
     dispatch(addArtThunk());
   }, []);
-  console.log(art);
 
   return (
-    <div style={{
-      backgroundColor: `rgb(${230}, ${230}, ${230})`,
-      width: '100vw',
-      height: '100vh'
-    }}
+    <div
+      id="third"
+      style={{
+        backgroundColor: `rgb(${230}, ${230}, ${230})`,
+        width: '100vw',
+        height: '100vh'
+      }}
     >
-
       <div className="d-flex mb-3 w-100 h-100 d-inline-block ">
         <div className="d-flex w-25 flex-column  d-inline-block justify-content-between">
           <div className="d-flex flex-column justify-content-around ms-5">

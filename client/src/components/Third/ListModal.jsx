@@ -5,7 +5,6 @@ import { addEventThunk } from '../../redux/actions/allEventsAction';
 
 function Lists() {
   const event = useSelector((store) => store.event);
-  console.log('-->', event);
   const dispatch = useDispatch();
 
   useEffect(() => {

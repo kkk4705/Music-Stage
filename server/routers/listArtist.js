@@ -7,10 +7,9 @@ const {
 router.get('/', async (req, res) => {
   try {
     const allArtists = await Artist.findAll({ raw: true });
-    // console.log('--->', allArtists);
     res.json({ allArtists });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -21,10 +20,10 @@ router.post('/:id', async (req, res) => {
       where: { id },
       raw: true,
     });
-    console.log('====>>', oneArtists);
+    console.error('====>>', oneArtists);
     res.json({ oneArtists });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -35,10 +34,9 @@ router.post('/find', async (req, res) => {
       where: { name },
       raw: true,
     });
-    console.log('====>>', findArtist);
     res.json({ findArtist });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -48,7 +46,6 @@ router.get('/events', async (req, res) => {
     include: [{ model: Event, include: Place }, Artist],
     raw: true,
   });
-  // console.log('--->', allEvents);
   res.json({ allEvents });
 });
 router.get('/event', async (req, res) => {
@@ -60,7 +57,7 @@ router.get('/event', async (req, res) => {
     });
     res.json({ oneEvents });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 

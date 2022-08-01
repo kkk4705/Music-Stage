@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -28,7 +29,6 @@ export default function PersonalPage() {
 
   const artist = event?.filter((elem) => elem.id === user.id)[0];
 
-  console.log(artist);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(addArtThunk());
@@ -44,20 +44,19 @@ export default function PersonalPage() {
       }}
     >
       { (artist) ? (
-
         <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block">
           <div className="d-flex p-2 h-40 d-inline-block justify-content-between" onClick={handleOpen}>
             <div className="d-flex flex-column justify-content-around ms-5">
               <div className="d-flex flex-column justify-content-around">
                 <div className="avatar">
                   <div className="w-16 rounded-full">
-                    <img src={(artist) ? artist['Artist.photo'] : 'empty'} alt="567" />
+                    <img src={artist['Artist.photo']} alt="567" />
                   </div>
                 </div>
               </div>
               <div className="d-flex fw-lighter">Жанр:</div>
               <Link to="/">
-                <div className="">{(artist) ? artist['Artist.genre'] : 'empty'}</div>
+                <div className="">{artist['Artist.genre']}</div>
               </Link>
             </div>
 
@@ -107,11 +106,11 @@ export default function PersonalPage() {
                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" />
               </div>
               <div className="offcanvas-body ">
-                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Главная</button>
-                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Афиша событий</button>
-                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Список музыкантов</button>
-                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Карта площадок</button>
-                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Личный кабинет</button>
+                <Link to="/#first"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Главная</button></Link>
+                <Link to="/#second"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Афиша событий</button></Link>
+                <Link to="/#third"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Список музыкантов</button></Link>
+                <Link to="/#fourth"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Карта площадок</button></Link>
+                <Link to="/personalPage"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Личный кабинет</button></Link>
               </div>
             </div>
 

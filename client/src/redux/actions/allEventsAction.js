@@ -12,6 +12,5 @@ export const addEventThunk = () => async (dispath) => {
 export const oneEventThunk = () => async (dispath) => {
   const response = await fetch('http://localhost:3030/listArtist/event');
   const data = await response.json();
-  dispath(addevent(data));
-  console.log(data);
+  dispath(addevent(data.allEvents));
 };

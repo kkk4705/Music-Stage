@@ -6,7 +6,6 @@ const { TabPane } = Tabs;
 
 function Tabses() {
   const onChange = (key) => {
-    console.log(key);
   };
 
   return (

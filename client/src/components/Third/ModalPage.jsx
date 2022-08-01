@@ -6,7 +6,6 @@ import { addModalThunk } from '../../redux/actions/oneArtistAction';
 
 export default function PersonalPage({ id }) {
   const one = useSelector((store) => store.one);
-  console.log('+++', one);
   const dispatch = useDispatch();
 
   useEffect(() => {

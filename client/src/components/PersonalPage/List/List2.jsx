@@ -10,7 +10,6 @@ function Lists2() {
     dispatch(getTrackThunk());
   }, []);
   const track = useSelector((store) => store.track);
-  console.log(track);
 
   return (
     <ul className="list-group list-group-flush ">

@@ -5,7 +5,6 @@ import { addArtThunk } from '../../redux/actions/allArtistsAction';
 
 function Lists() {
   const event = useSelector((store) => store.event);
-  console.log('-->', event);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -7,7 +7,6 @@ import ModalPage from './ModalPage';
 import { findArtThunk } from '../../redux/actions/findArtist';
 
 export default function OneArtist({ input }) {
-  // console.log('----', input);
   const [data, setData] = useState('');
   const art = useSelector((store) => store.art);
   const find = useSelector((store) => store.find);
@@ -19,7 +18,6 @@ export default function OneArtist({ input }) {
   useEffect(() => {
     setData(input);
     dispatch(findArtThunk(input));
-    console.log('----', input);
 
     // dispatch(addArtThunk());
   }, []);

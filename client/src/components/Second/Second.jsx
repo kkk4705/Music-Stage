@@ -14,10 +14,9 @@ export default function Event() {
   const event = useSelector((store) => store.event);
   const eventType = useSelector((store) => store.one);
 
-  console.log(eventType);
-  // console.log(event);
   return (
     <div
+      id="second"
       style={{
         backgroundColor: `rgb(${0}, ${36}, ${57})`,
         width: '100vw',

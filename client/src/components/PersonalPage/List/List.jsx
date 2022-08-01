@@ -7,7 +7,6 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import 'antd/dist/antd.min.css';
 
 function Lists({ info }) {
-  console.log(info);
   return (
     <ul className="list-group list-group-flush ">
       <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent">
