@@ -37,11 +37,11 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-app.use((req, res, next) => {
-  res.locals.user = req.session?.user;
-  console.log('-2---->>>>', res.locals.user);
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.user = req.session?.user;
+//   console.log('-2---->>>>', res.locals.user);
+//   next();
+// });
 
 app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
