@@ -85,6 +85,7 @@ const signIn = async (req, res) => {
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
+          type: 'artist',
         };
 
         return res.json({ id: currentUser.id, name: currentUser.name, type: 'artist' });
@@ -104,6 +105,7 @@ const signIn = async (req, res) => {
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
+          type: 'owner',
         };
 
         return res.json({ id: currentUser.id, name: currentUser.name, type: 'owner' });
@@ -132,14 +134,15 @@ const signOut = async (req, res) => {
 };
 
 const checkAuth = async (req, res) => {
+  console.log(req.session.user);
   try {
     if (req.session.user.type === 'artist') {
       const user = await Artist.findByPk(req.session.user.id);
-      return res.json({ id: user.id, name: user.name, type: 'owner' });
+      return res.json({ id: user.id, name: user.name, type: 'artist' });
     }
     if (req.session.user.type === 'owner') {
       const user = await Owner.findByPk(req.session.user.id);
-      return res.json({ id: user.id, name: user.name, type: 'artist' });
+      return res.json({ id: user.id, name: user.name, type: 'owner' });
     }
   } catch (error) {
     console.error(error);

@@ -5,21 +5,44 @@ const {
 } = require('../db/models');
 
 router.get('/', async (req, res) => {
-  const allArtists = await Artist.findAll({ raw: true });
-  // console.log('--->', allEvents);
-  res.json({ allArtists });
+  try {
+    const allArtists = await Artist.findAll({ raw: true });
+    // console.log('--->', allArtists);
+    res.json({ allArtists });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.post('/:id', async (req, res) => {
-  const { id } = req.body;
-  const oneArtists = await Artist.findAll({
-    where: { id },
-    raw: true,
-  });
-  // console.log('====>>', oneArtists);
-  res.json({ oneArtists });
+  try {
+    const { id } = req.body;
+    const oneArtists = await Artist.findAll({
+      where: { id },
+      raw: true,
+    });
+    console.log('====>>', oneArtists);
+    res.json({ oneArtists });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
+router.post('/find', async (req, res) => {
+  try {
+    const { name } = req.body;
+    const findArtist = await Artist.findAll({
+      where: { name },
+      raw: true,
+    });
+    console.log('====>>', findArtist);
+    res.json({ findArtist });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// НЕ ВЫВОДЯТСЯ ДАННЫЕ ИЗ БД
 router.get('/events', async (req, res) => {
   const allEvents = await EventStatus.findAll({
     include: [{ model: Event, include: Place }, Artist],
@@ -29,13 +52,16 @@ router.get('/events', async (req, res) => {
   res.json({ allEvents });
 });
 router.get('/event', async (req, res) => {
-  const user = res.locals.userName;
-  console.log('-1---->>>>', user);
-  // const allEvents = await EventStatus.findone({
-  //   where: { user },
-  // });
-  // console.log('--->', allEvents);
-  res.json({ user });
+  try {
+    const oneEvents = await EventStatus.findOne({
+      where: { name: res.locals.user.name },
+      include: [{ model: Event, include: Place }, Artist],
+      raw: true,
+    });
+    res.json({ oneEvents });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;

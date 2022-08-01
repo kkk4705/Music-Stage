@@ -1,17 +1,19 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Third.module.css';
-import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import OneArtist from './OneArtist';
 import 'antd/dist/antd.min.css';
+import { addArtThunk } from '../../redux/actions/allArtistsAction';
 
 export default function Third() {
   const art = useSelector((store) => store.art);
+  const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(addArtThunk());
   }, []);
+  console.log(art);
 
   return (
     <div style={{
@@ -27,18 +29,12 @@ export default function Third() {
             <div className="d-flex flex-column h-50 justify-content-around my-4">
               <p className={`${styles.text}`}>Список</p>
               <p className={`${styles.text2}`}>музыкантов </p>
-              <input type="text" className=" w-75 form-control " placeholder="Введите название" />
+              <input type="text" className=" w-75 form-control " value={input} placeholder="Введите название" />
             </div>
-            <div className="d-flex m-3">
-              {art.map((el) => (
-                <OneArtist
-                  key={el.id}
-                  photo={el['Artist.photo']}
-                  id={el.id}
-                  name={el['Artist.name']}
-                  genre={el['Artist.genre']}
-                />
-              ))}
+            <div className="overflow-auto mt-3" style={{ height: '450px' }}>
+              <div className="d-flex flex-column ">
+                <OneArtist input={input} />
+              </div>
             </div>
 
           </div>
