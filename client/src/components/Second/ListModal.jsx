@@ -4,8 +4,8 @@ import 'antd/dist/antd.min.css';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 
 function Lists() {
-  const art = useSelector((store) => store.art);
-  console.log('-->', art);
+  const event = useSelector((store) => store.event);
+  console.log('-->', event);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function Lists() {
 
   return (
     <ul className="list-group list-group-flush ">
-      {art.map((el) => (
+      {event.map((el) => (
         <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent">
           <div className="avatar ">
             <div className="d-flex flex-row w-10 me-1 rounded-full ">
