@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
-import NaviMain from '../ui/Navi/NaviMain';
 import Card from './Card';
 import ModalEvent from './ModalEvent';
 import Select from './Select';
@@ -40,7 +39,6 @@ export default function Event() {
         height: '120vh'
       }}
     >
-      <NaviMain typeLogo="white" />
       <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
         <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex h-40 d-inline-block justify-content-center">
           <div className="w-75 ps-5 ms-5 mt-5 justify-content-center" style={{ backgroundColor: `rgb(${0}, ${36}, ${57})`, fontSize: '100px' }}>
@@ -68,18 +66,19 @@ export default function Event() {
             </div>
             <div className="d-flex flex-column align-items-end me-5 pe-5">.</div>
           </div>
-          <div className="d-flex flex-column justify-content-start ms-4"> </div>
+          <div className="d-flex flex-column justify-content-start ms-4">
+            <img src="whitelogo2.png" width="200px" alt="" />
+          </div>
         </div>
         <div className={`overflow-auto mt-3 ${styles.over}`} style={{ height: '450px', marginTop: '75px' }}>
-          {/* <div className="d-flex flex-column ">
+          <div className="d-flex flex-column ">
             {search
               .filter(((el) => el['Event.name']
                 .toLowerCase()
-                .includes(input.toLowerCase()))).map((el) => (
-                  <Card />
-              ))}
+                .includes(input.toLowerCase()))).map((el) => (<Card />))}
+            {search
+              .filter(((el) => +el['Event.type_id'] === +select)).map((el) => (<Card />))}
           </div>
-          </div> */}
         </div>
       </div>
     </div>
