@@ -69,7 +69,7 @@ export default function PersonalPage() {
           {/* <div className="p-2 flex-fill  ms-5 fs-4 fw-bold">{artist?.name}</div> */}
 
           <div className="avatar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-            <img src="././black2logo.png" alt="logo" />
+            {/* <img src="././black2logo.png" alt="logo" /> */}
           </div>
         </div>
 
