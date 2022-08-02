@@ -48,7 +48,9 @@ export default function PersonalPage() {
       { (artist) ? (
 
         <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block">
-          <Navi typeNav="pers" />
+          <div>
+            <NaviPers />
+          </div>
           <div className="d-flex p-2 h-40 d-inline-block justify-content-between" onClick={handleOpen}>
             <div className="d-flex flex-column justify-content-around ms-5">
               <div className="d-flex flex-column justify-content-around">

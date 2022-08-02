@@ -7,7 +7,7 @@ import Card from './Card';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 
 export default function OneArtist({ input, select }) {
-  console.log('--===?', select);
+  // console.log('--===?', select);
   const art = useSelector((store) => store.art);
 
   const dispatch = useDispatch();

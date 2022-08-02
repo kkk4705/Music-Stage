@@ -27,7 +27,7 @@ export default function OneCard({
         <h5 className="fw-bolder text-black fs-3">{name}</h5>
         <p className=" text-black fs-5">{genre}</p>
       </div>
-      <div className="d-flex flex-column justify-content-end">
+      <div className=" d-flex flex-column justify-content-end">
         <Modal
           centered
           destroyOnClose
