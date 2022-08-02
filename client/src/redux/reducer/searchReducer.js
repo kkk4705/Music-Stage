@@ -3,6 +3,8 @@ const searchReducer = (state = [], action) => {
   switch (type) {
     case 'ADD_SEARCH':
       return payload;
+    // case 'ADD_FILTER':
+    //   return state.filter(el => el.state);
     default:
       return state;
   }

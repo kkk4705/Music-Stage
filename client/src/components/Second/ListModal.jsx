@@ -22,26 +22,26 @@ function Lists() {
               <img src="https://placeimg.com/192/192/people" alt="..." />
             </div>
             {/* {art.map((element) => ( */}
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex ms-2 justify-content-center align-items-center">
               {el['Artist.name']}
             </div>
             {/* {element.name} */}
             {/* ))} */}
           </div>
-          <div className="ms-1">
-            <div className="me-3 text-break">{el['Artist.name']}</div>
-            {/* {el['Event.Place.name']} */}
-          </div>
-          <div className="me-3">
-            <div className="fw-light">{el['Event.name']}</div>
-            {/* {el['Event.name']} */}
-          </div>
-          {art.map((element) => (
-            <div className="me-auto">
-              <div className="fw-light">{element.genre}</div>
-              {/* {el['Event.date']} */}
-            </div>
-          ))}
+          {/* <div className="ms-1"> */}
+          {/* <div className="me-3 text-break">{el['Artist.name']}</div> */}
+          {/* {el['Event.Place.name']} */}
+          {/* </div> */}
+          {/* <div className="me-3"> */}
+          {/* <div className="fw-light">{el['Event.name']}</div> */}
+          {/* {el['Event.name']} */}
+          {/* </div> */}
+          {/* {art.map((element) => ( */}
+          {/* <div className="me-auto"> */}
+          {/* <div className="fw-light">{element.genre}</div> */}
+          {/* {el['Event.date']} */}
+          {/* </div> */}
+          {/* ))} */}
           <hr />
         </li>
       ))}
