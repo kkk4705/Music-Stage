@@ -27,8 +27,8 @@ function Maps() {
         <p className="text-center fs-1 text-white py-3">Карта площадок</p>
         <div className="d-flex justify-content-center align-items-center rounded-0">
           <Map
-            width="1000px"
-            height="600px"
+            width="85vw"
+            height="70vh"
             defaultState={defaultPoint}
           >
             <SearchControl options={{
