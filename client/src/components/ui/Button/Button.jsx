@@ -7,7 +7,14 @@ export default function Button({
 }) {
   return (
     <div className={styles.divinput}>
-      <button onClick={funcOnClick} value={value} type={type}>{body}</button>
+      <button
+        className={styles.button}
+        onClick={funcOnClick}
+        value={value}
+        type={type}
+      >
+        {body}
+      </button>
     </div>
   );
 }

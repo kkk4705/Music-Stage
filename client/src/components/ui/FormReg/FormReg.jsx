@@ -5,7 +5,7 @@ import Input from '../Input/Input';
 import Select from '../Select/Select';
 import Textarea from '../Textarea/Textarea';
 import Button from '../Button/Button';
-import { signUp } from '../../../../redux/actions/userAction';
+import { signUp } from '../../../redux/actions/userAction';
 
 export default function FormReg({ typeUser }) {
   const [userReg, setUserReg] = useState({

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import First from './components/First/First';
-import FormOut from './components/First/ui/FormOut/FormOut';
+import FormOut from './components/ui/FormOut/FormOut';
 import Fourth from './components/Fourth/Fourth';
 import PersonalPage from './components/PersonalPage/PersonalPage';
 import Tab from './components/PersonalPage/Table/Table';

@@ -7,7 +7,7 @@ export default function Input({
   return (
     <div className={styles.divinput}>
       <label htmlFor={name}>{placeholder}</label>
-      <input onChange={onChange} type={type} name={name} id={name} placeholder={placeholder} />
+      <input className={styles.input} aria-required="true" onChange={onChange} type={type} name={name} id={name} placeholder={placeholder} />
     </div>
   );
 }

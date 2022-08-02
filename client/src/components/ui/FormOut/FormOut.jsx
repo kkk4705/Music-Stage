@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signOut } from '../../../../redux/actions/userAction';
+import { signOut } from '../../../redux/actions/userAction';
 
 export default function FormOut() {
   const dispatch = useDispatch();

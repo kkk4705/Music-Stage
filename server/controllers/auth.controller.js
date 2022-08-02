@@ -127,7 +127,7 @@ const signOut = async (req, res) => {
       return res.sendStatus(500);
     }
 
-    res.clearCookie(req.app.get('cookieName'));
+    res.clearCookie('user_sid');
 
     return res.sendStatus(200);
   });

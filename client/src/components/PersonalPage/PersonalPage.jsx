@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import { addEventThunk, oneEventThunk } from '../../redux/actions/allEventsAction';
+import NaviPers from '../ui/Navi/NaviPers';
 import Tabses from './Table/Table';
 
 export default function PersonalPage() {
@@ -29,6 +30,7 @@ export default function PersonalPage() {
 
   const artist = event?.filter((elem) => elem.id === user.id)[0];
 
+  console.log(artist);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(addArtThunk());
@@ -44,27 +46,29 @@ export default function PersonalPage() {
       }}
     >
       { (artist) ? (
+
         <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block">
+          <NaviPers />
           <div className="d-flex p-2 h-40 d-inline-block justify-content-between" onClick={handleOpen}>
             <div className="d-flex flex-column justify-content-around ms-5">
               <div className="d-flex flex-column justify-content-around">
                 <div className="avatar">
                   <div className="w-16 rounded-full">
-                    <img src={artist['Artist.photo']} alt="567" />
+                    <img src={(artist) ? artist['Artist.photo'] : 'empty'} alt="567" />
                   </div>
                 </div>
               </div>
               <div className="d-flex fw-lighter">Жанр:</div>
               <Link to="/">
-                <div className="">{artist['Artist.genre']}</div>
+                <div className="">{(artist) ? artist['Artist.genre'] : 'empty'}</div>
               </Link>
             </div>
 
             <div className="p-2 flex-fill  ms-5 fs-4 fw-bold">{artist?.name}</div>
 
-            <div className="avatar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            {/* <div className="avatar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
               <img src="././black2logo.png" alt="logo" />
-            </div>
+            </div> */}
           </div>
 
           <div className="w-50 h4 pb-2 mb-4 border-bottom border-danger" />
@@ -92,8 +96,7 @@ export default function PersonalPage() {
             <div className="w-75 d-flex flex-column p-3 =">
               <Tabses info={artist} />
             </div>
-
-            <div
+            {/* <div
               style={{ backgroundColor: `rgb(${180}, ${180}, ${180})`, }}
               className="offcanvas offcanvas-end"
               data-bs-scroll="true"
@@ -106,13 +109,13 @@ export default function PersonalPage() {
                 <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" />
               </div>
               <div className="offcanvas-body ">
-                <Link to="/#first"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Главная</button></Link>
-                <Link to="/#second"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Афиша событий</button></Link>
-                <Link to="/#third"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Список музыкантов</button></Link>
-                <Link to="/#fourth"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Карта площадок</button></Link>
-                <Link to="/personalPage"><button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Личный кабинет</button></Link>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Главная</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Афиша событий</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Список музыкантов</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Карта площадок</button>
+                <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Личный кабинет</button>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>

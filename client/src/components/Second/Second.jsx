@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
+import NaviMain from '../ui/Navi/NaviMain';
 import Card from './Card';
 import ModalEvent from './ModalEvent';
 
@@ -46,7 +47,7 @@ export default function Event() {
             <div className="d-flex flex-column align-items-end me-5 pe-5">.</div>
           </div>
           <div className="d-flex flex-column justify-content-start mt-5 ms-4">
-            <img src="whitelogo.png" width="100px" alt="" />
+            <NaviMain />
           </div>
         </div>
         <Card />
