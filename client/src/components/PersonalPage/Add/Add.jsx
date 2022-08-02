@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTrackThunk } from '../../../redux/actions/getTrack';
+import { getTrackThunk, allTrackThunk } from '../../../redux/actions/getTrack';
 
 function Add() {
   const dispatch = useDispatch();
@@ -20,12 +20,10 @@ function Add() {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('id', user.id);
-    // dispatch(getTrackThunk({ input, user, file }));
     dispatch(getTrackThunk(user, formData));
     setFile({});
   };
 
-  console.log(track);
   return (
     <div className="">
       <form onSubmit={addTrack} encType="multipart/form-data">

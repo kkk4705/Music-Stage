@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import 'antd/dist/antd.min.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTrackThunk } from '../../../redux/actions/getTrack';
+import { getTrackThunk, allTrackThunk } from '../../../redux/actions/getTrack';
 
 function Lists2() {
   const dispatch = useDispatch();
 
+  const Alltrack = useSelector((store) => store.track);
+  const user = useSelector((store) => store.user);
+  const track = Alltrack.filter((elem) => elem.artist_id === user.id);
   useEffect(() => {
-    dispatch(getTrackThunk());
+    dispatch(allTrackThunk());
   }, []);
-  const track = useSelector((store) => store.track);
-  console.log(track);
+  console.log(track, Alltrack);
 
   return (
     <ul className="list-group list-group-flush ">
-      {track.map((elem) => (
+      {track?.map((elem) => (
         <>
           <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent mx-2">
             <div className="avatar">
@@ -29,7 +31,7 @@ function Lists2() {
             <div className="me-auto ">
               <audio
                 controls
-                src="server/public/music/Slava Basyul - ÐÐ°ÑÑÑÑÑÑ.mp3"
+                src="../../../../../../server/public/music/SLAVA - Kapushon.mp3"
               >
                 <track
                   default
