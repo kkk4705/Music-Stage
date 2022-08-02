@@ -10,6 +10,8 @@ const tracks = require('./routers/tracks.router');
 const upload = require('./routers/upload');
 const types = require('./routers/type.router');
 const search = require('./routers/search.router');
+const genres = require('./routers/genre.router');
+// const upload = require('./routers/upload');
 
 const app = express();
 const PORT = 3030 || 3001;
@@ -48,6 +50,7 @@ app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
 app.use('/tracks', tracks);
 app.use('/types', types);
+app.use('/genres', genres);
 app.use('/search', search);
 app.use('/upload', upload);
 

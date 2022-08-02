@@ -1,21 +1,19 @@
-.img {
-    opacity: 0.8;
+img {
+    opacity: 0.9;
 }
 
 .text {
     font-style: bold;
-    margin-top: 15px;
-    font-size: 50px;
-    text-align: center;
+    font-size: 60px;
     text-transform: uppercase;
     color: #722F2F;
 }
 
 .text2 {
     font-style: bold;
-    font-size: 30px;
-    margin-top: -60px;
-    text-align: center;
+    font-size: 40px;
+    margin-top: -80px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     color: #722F2F;
 }

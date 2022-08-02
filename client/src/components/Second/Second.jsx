@@ -52,7 +52,8 @@ export default function Event() {
             {search
               .filter(((el) => el['Event.name']
                 .toLowerCase()
-                .includes(input.toLowerCase()))).map((el) => (<Card />
+                .includes(input.toLowerCase()))).map((el) => (
+                  <Card />
               ))}
             <NaviMain />
           </div>

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Divider } from 'antd';
 import Tabses from './TableModal';
 import { addModalThunk } from '../../redux/actions/oneArtistAction';
 
-export default function PersonalPage({ id }) {
+export default function PersonalPage({ id, visible }) {
+  console.log(id);
   const one = useSelector((store) => store.one);
   const dispatch = useDispatch();
-
+  console.log(visible, id);
   useEffect(() => {
     dispatch(addModalThunk(id));
-  }, []);
+  }, [visible]);
 
   return (
     <>
@@ -67,7 +67,7 @@ export default function PersonalPage({ id }) {
               </div>
               {/* ебануть таблицу */}
               <div className="w-75 d-flex flex-column p-3">
-                <Tabses />
+                <Tabses id={id} />
               </div>
             </div>
           </div>
