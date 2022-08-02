@@ -4,15 +4,16 @@ import styles from './Third.module.css';
 import OneArtist from './OneArtist';
 import 'antd/dist/antd.min.css';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
+import NaviMain from '../ui/Navi/NaviMain';
 
 export default function Third() {
   const art = useSelector((store) => store.art);
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(addArtThunk());
-  // }, []);
+  useEffect(() => {
+    dispatch(addArtThunk());
+  }, []);
 
   const changeHandler = (e) => {
     setInput(e.target.value);
@@ -35,7 +36,7 @@ export default function Third() {
               <p className={`${styles.text2}`}>музыкантов </p>
               <input type="text" className=" w-75 form-control " value={input} placeholder="Введите название" />
             </div>
-            <div className="overflow-auto mt-3" style={{ height: '450px' }}>
+            <div className="overflow-auto mt-3" style={{ height: '670px' }}>
               <div className="d-flex flex-column ">
                 <OneArtist input={input} />
               </div>
@@ -43,11 +44,11 @@ export default function Third() {
 
           </div>
         </div>
-        <div className="d-flex flex-row-reverse opacity-75 w-75  d-inline-block">
+        <div className="d-flex flex-row-reverse opacity-75  d-inline-block">
           <img src="./yIMOHPxu2nE.jpeg" alt="third" />
+          <NaviMain />
         </div>
       </div>
-
     </div>
 
   );

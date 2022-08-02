@@ -4,33 +4,23 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './First.module.css';
-import Button from './ui/Button/Button';
-import FormAuth from './ui/FormAuth/FormAuth';
-import FormReg from './ui/FormReg/FormReg';
+import Button from '../ui/Button/Button';
+import FormAuth from '../ui/FormAuth/FormAuth';
+import FormReg from '../ui/FormReg/FormReg';
+import NaviMain from '../ui/Navi/NaviMain';
 
 export default function First() {
   // useState для перерендера формы
   const [form, setForm] = useState('main');
 
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
 
   return (
     <div id="first" className={styles.headdiv}>
       <div className={styles.imegediv}> </div>
       <div className={styles.formdiv}>
         <div className={styles.formdivlogo}>
-          <img src="/blacklogo.png" alt="blacklogo" />
-          {user && (
-            <p>
-              <a href="#second">second</a>
-              Привет,
-              {' '}
-              <Link to="/personalPage">{user.name}</Link>
-              <br />
-              <Link to="/logout">Выйти</Link>
-            </p>
-          )}
+          <NaviMain />
         </div>
         <hr className={styles.hrline} />
 
@@ -38,8 +28,12 @@ export default function First() {
         {form === 'main' && (
           <div className={styles.formdivbody}>
             <h3>Платформа для музыкантов и организаторов мероприятий</h3>
-            <Button funcOnClick={() => setForm('authartist')} type="button" body="МУЗЫКАНТ" />
-            <Button funcOnClick={() => setForm('authowner')} type="button" body="ОРГАНИЗАТОР" />
+            {!user && (
+              <>
+                <Button funcOnClick={() => setForm('authartist')} type="button" body="МУЗЫКАНТ" />
+                <Button funcOnClick={() => setForm('authowner')} type="button" body="ОРГАНИЗАТОР" />
+              </>
+            )}
             <p>листай вниз, чтобы увидеть афишу</p>
           </div>
         )}

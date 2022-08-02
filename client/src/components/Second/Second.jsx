@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
+import NaviMain from '../ui/Navi/NaviMain';
 import Card from './Card';
 import ModalEvent from './ModalEvent';
 import Select from './Select';
@@ -51,9 +52,9 @@ export default function Event() {
             {search
               .filter(((el) => el['Event.name']
                 .toLowerCase()
-                .includes(input.toLowerCase()))).map((el) => (
-                <Card />
+                .includes(input.toLowerCase()))).map((el) => (<Card />
               ))}
+            <NaviMain />
           </div>
         </div>
       </div>

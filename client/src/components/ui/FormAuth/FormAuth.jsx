@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import { signIn } from '../../../../redux/actions/userAction';
+import { signIn } from '../../../redux/actions/userAction';
 
 export default function FormAuth({ typeUser }) {
   const [userInput, setUserInput] = useState({
