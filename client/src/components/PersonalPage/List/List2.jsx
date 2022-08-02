@@ -9,13 +9,15 @@ function Lists2() {
   const Alltrack = useSelector((store) => store.track);
   const user = useSelector((store) => store.user);
   const track = Alltrack.filter((elem) => elem.artist_id === user.id);
+
   useEffect(() => {
     dispatch(allTrackThunk());
   }, []);
+
   console.log(track, Alltrack);
   return (
     <ul className="list-group list-group-flush ">
-      {track?.map((elem) => (
+      {Alltrack?.filter((elem) => elem.artist_id === user.id).map((elem) => (
         <>
           <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent mx-2">
             <div className="avatar">
@@ -35,7 +37,7 @@ function Lists2() {
                   srcLang="en"
                   src="/media/examples/friday.vtt"
                 />
-                <source src={`../../../../../server/public/music/${elem.track}`} type="audio/mpeg" />
+                <source src={`http://localhost:3030/music/${elem.track}`} type="audio/mpeg" />
                 Your browser does not support the audio tag.
               </audio>
             </div>
