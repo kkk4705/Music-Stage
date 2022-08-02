@@ -13,12 +13,11 @@ function Lists2() {
     dispatch(allTrackThunk());
   }, []);
   console.log(track, Alltrack);
-
   return (
     <ul className="list-group list-group-flush ">
       {track?.map((elem) => (
         <>
-          <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent mx-2">
+          <li key={elem.id} className="list-group-item d-flex justify-content-between align-items-start bg-transparent mx-2">
             <div className="avatar">
               <div className="w-10 me-4 rounded-full">
                 <img src="https://placeimg.com/192/192/people" alt="..." />
@@ -29,17 +28,15 @@ function Lists2() {
               его описание
             </div>
             <div className="me-auto ">
-              <audio
-                controls
-                src="../../../../../../server/public/music/SLAVA - Kapushon.mp3"
-              >
+              <audio controls>
                 <track
                   default
                   kind="captions"
                   srcLang="en"
                   src="/media/examples/friday.vtt"
                 />
-                Sorry, your browser doesnt support embedded videos.
+                <source src={`../../../../../server/public/music/${elem.track}`} type="audio/mpeg" />
+                Your browser does not support the audio tag.
               </audio>
             </div>
             <div className="me-auto ">

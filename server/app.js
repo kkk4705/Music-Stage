@@ -45,13 +45,6 @@ app.use((req, res, next) => {
 app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
 app.use('/tracks', tracks);
-<<<<<<< HEAD
-app.use('/types', types);
-app.use('/search', search);
-
-// app.use('/upload', upload);
-=======
 app.use('/upload', upload);
->>>>>>> personal-pages
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });

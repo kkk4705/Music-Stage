@@ -1,9 +1,4 @@
-import {
-  Avatar, Divider, List, Skeleton
-} from 'antd';
 import React, { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import 'antd/dist/antd.min.css';
 
 function Lists({ info }) {

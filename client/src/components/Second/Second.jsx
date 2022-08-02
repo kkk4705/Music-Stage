@@ -47,14 +47,14 @@ export default function Event() {
           </div>
         </div>
         <div className={`overflow-auto mt-3 ${styles.over}`} style={{ height: '450px', marginTop: '75px' }}>
-          <div className="d-flex flex-column ">
+          {/* <div className="d-flex flex-column ">
             {search
               .filter(((el) => el['Event.name']
                 .toLowerCase()
                 .includes(input.toLowerCase()))).map((el) => (
                 <Card />
               ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
