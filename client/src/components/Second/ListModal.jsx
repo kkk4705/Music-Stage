@@ -5,6 +5,8 @@ import { addArtThunk } from '../../redux/actions/allArtistsAction';
 
 function Lists() {
   const event = useSelector((store) => store.event);
+  const art = useSelector((store) => store.art);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,18 +21,27 @@ function Lists() {
             <div className="d-flex flex-row w-10 me-1 rounded-full ">
               <img src="https://placeimg.com/192/192/people" alt="..." />
             </div>
-            <div className="d-flex justify-content-center align-items-center">ustal</div>
+            {/* {art.map((element) => ( */}
+            <div className="d-flex justify-content-center align-items-center">
+              {el['Artist.name']}
+            </div>
+            {/* {element.name} */}
+            {/* ))} */}
           </div>
           <div className="ms-1">
-            <div className="me-3 text-break">{el['Event.Place.name']}</div>
+            <div className="me-3 text-break">{el['Artist.name']}</div>
+            {/* {el['Event.Place.name']} */}
           </div>
           <div className="me-3">
             <div className="fw-light">{el['Event.name']}</div>
+            {/* {el['Event.name']} */}
           </div>
-          <div className="me-auto">
-            <div className="fw-light">{el['Event.date']}</div>
-          </div>
-
+          {art.map((element) => (
+            <div className="me-auto">
+              <div className="fw-light">{element.genre}</div>
+              {/* {el['Event.date']} */}
+            </div>
+          ))}
           <hr />
         </li>
       ))}

@@ -8,19 +8,29 @@ import ModalEvent from './ModalEvent';
 import Select from './Select';
 import styles from './Second.module.css';
 import { getSearchThunk } from '../../redux/actions/searchAction';
+import { getTypeThunk } from '../../redux/actions/getType';
 
 export default function Event() {
   const [input, setInput] = useState('');
+  const [select, setSelect] = useState('');
+  console.log(select);
 
   const dispatch = useDispatch();
+  // const changeType = (e) => {
+  //   setInput(e.target.value);
+  // };
+
   useEffect(() => {
     dispatch(addEventThunk());
     dispatch(getSearchThunk());
+    dispatch(getTypeThunk());
   }, []);
 
   const search = useSelector((store) => store.search);
+  const type = useSelector((store) => store.type);
+
   // const eventType = useSelector((store) => store);
-  console.log(search);
+  // console.log(search);
   return (
     <div
       id="second"
@@ -40,7 +50,21 @@ export default function Event() {
               <div className="input-group d-flex justify-content-center w-25 h-25 ">
                 <input value={input} onChange={(e) => setInput(e.target.value)} type="text" className="form-control opacity-75 d-flex justify-content-center w-25 h-15 rounded-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
               </div>
-              <Select />
+              <div className="d-flex card w-25 opacity-75 justify-content-space-around">
+                <div>
+                  <select className="form-select d-flex" aria-label="Default select example" value={select} onChange={(e) => setSelect(e.target.value)}>
+                    <option selected disabled hidden>Тип события</option>
+                    {type.map((el) => (
+                      <option
+                        key={el.id}
+                        value={el.id}
+                      >
+                        {el.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
             </div>
             <div className="d-flex flex-column align-items-end me-5 pe-5">.</div>
           </div>
