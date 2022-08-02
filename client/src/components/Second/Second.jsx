@@ -72,6 +72,7 @@ export default function Event() {
         </div>
         <div className={`overflow-auto mt-3 ${styles.over}`} style={{ height: '450px', marginTop: '75px' }}>
           <div className="d-flex flex-column ">
+            <div>...</div>
             {search
               .filter(((el) => el['Event.name']
                 .toLowerCase()
