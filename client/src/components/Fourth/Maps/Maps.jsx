@@ -1,8 +1,8 @@
 import React, {
 } from 'react';
-// import {
-//   YMaps, Map, FullscreenControl, SearchControl, ZoomControl, ObjectManager
-// } from 'react-yandex-maps';
+import {
+  YMaps, Map, FullscreenControl, SearchControl, ZoomControl, ObjectManager
+} from 'react-yandex-maps';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllPlaceThunk } from '../../../redux/actions/AllPlaces';
@@ -19,7 +19,7 @@ function Maps() {
   const defaultPoint = { center: [55.754138, 37.620324], zoom: 11 };
   return (
     <div className="d-flex flex-column justify-content-center">
-      {/* <YMaps query={{
+      <YMaps query={{
         lang: 'en_RU',
         // apikey: '63b9b4db-e778-4867-b0b2-65c2fc80454c',
       }}
@@ -55,7 +55,7 @@ function Maps() {
             <ZoomControl />
           </Map>
         </div>
-      </YMaps> */}
+      </YMaps>
     </div>
   );
 }
