@@ -11,13 +11,14 @@ export const deleteUser = () => ({
 });
 
 export const signUp = (payload, navigate) => async (dispatch) => {
+  console.log(payload);
   const response = await fetch(endPoints.signUp(), {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
     credentials: 'include',
-    body: JSON.stringify(payload),
+    body: payload,
   });
   if (response.status === 200) {
     const user = await response.json();

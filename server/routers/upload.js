@@ -16,7 +16,6 @@ router.post('/add', upload.single('file'), async (req, res) => {
   try {
     const { id } = req.body;
     const path = req.file.originalname;
-    console.log(path);
     await Track.create({ track: path, artist_id: id });
     const allTracks = await Track.findAll();
     res.json(allTracks);

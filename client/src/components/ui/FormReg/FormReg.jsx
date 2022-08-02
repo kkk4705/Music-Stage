@@ -22,15 +22,34 @@ export default function FormReg({ typeUser }) {
   });
 
   const navigate = useNavigate();
+  const [input, setInput] = useState({});
+  const [photo, setPhoto] = useState({});
+
+  const fileHandler = (e) => {
+    setPhoto((prev) => (e.target.files[0]));
+  };
 
   const changeHandler = (e) => {
-    setUserReg((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setUserReg((prev) => ({ ...prev, [e.target.name]: (e.target.value) }));
   };
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
-    dispatch(signUp(userReg, navigate));
+    const formData = new FormData();
+    formData.append('name', userReg.name);
+    formData.append('mail', userReg.mail);
+    formData.append('pass', userReg.pass);
+    formData.append('photo', photo);
+    formData.append('instagram', userReg.instagram);
+    formData.append('phone', userReg.phone);
+    formData.append('vk', userReg.vk);
+    formData.append('genre', userReg.genre);
+    formData.append('info', userReg.info);
+    formData.append('genre_id_fs', userReg.genre_id_fs);
+    formData.append('telegram', userReg.telegram);
+    console.log(userReg);
+    dispatch(signUp(formData, navigate));
   };
 
   return (
@@ -38,7 +57,8 @@ export default function FormReg({ typeUser }) {
       <Input onChange={changeHandler} type="text" name="name" placeholder="Имя" />
       <Input onChange={changeHandler} type="mail" name="mail" placeholder="Электронная почта" />
       <Input onChange={changeHandler} type="password" name="pass" placeholder="Пароль" />
-      <Input onChange={changeHandler} type="url" name="photo" placeholder="Фото" />
+      {/* <Input onChange={changeHandler} type="url" name="photo" placeholder="Фото" /> */}
+      <input value={input.photo} name="photo" onChange={fileHandler} className="form-control bg-transparent rounded-0" id="formFileSm" type="file" />
       <Input onChange={changeHandler} type="text" name="instagram" placeholder="Instagram" />
       <Input onChange={changeHandler} type="phone" name="phone" placeholder="Телефон" />
       {typeUser === 'artist' && (
