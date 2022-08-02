@@ -7,7 +7,7 @@ function Edit() {
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Имя" />
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Электронная почта" />
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Пароль" />
-          <input className="form-control bg-transparent rounded-0 my-3" id="formFileSm" type="file" />
+          <input className="form-control bg-transparent rounded-0 my-3 text-reset" id="formFileSm" type="file" />
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Instagram" />
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Телефон" />
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Вконтакте" />
@@ -15,7 +15,7 @@ function Edit() {
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Жанр для поиска" />
           <input type="text" className="form-control bg-transparent rounded-0 my-3" id="exampleInputPassword1" placeholder="Краткое описание" />
 
-          <button type="submit" className="btn bg-transparent rounded-0 my-3">Добавить</button>
+          <button type="submit" className="btn bg-transparent rounded-0 my-3 text-reset">Добавить</button>
         </div>
       </form>
 
