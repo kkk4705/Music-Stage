@@ -7,6 +7,7 @@ import findArtistReducer from './findArtistReducer';
 import trackReducer from './trackReducer';
 import typeReducer from './typeReducer';
 import searchReducer from './searchReducer';
+import placeReduser from './placeReduser';
 
 const rootReducer = combineReducers({
   art: allArtistsReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   track: trackReducer,
   type: typeReducer,
   search: searchReducer,
+  place: placeReduser,
 });
 
 export default rootReducer;

@@ -17,7 +17,7 @@ function Lists2() {
     <ul className="list-group list-group-flush ">
       {track?.map((elem) => (
         <>
-          <li key={elem.id} className="list-group-item d-flex justify-content-between align-items-start bg-transparent mx-2">
+          <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent mx-2">
             <div className="avatar">
               <div className="w-10 me-4 rounded-full">
                 <img src="https://placeimg.com/192/192/people" alt="..." />

@@ -8,6 +8,7 @@ const listArtist = require('./routers/listArtist');
 const authRouter = require('./routers/auth.router');
 const tracks = require('./routers/tracks.router');
 const upload = require('./routers/upload');
+const allPlaces = require('./routers/allPlaces.router');
 
 const app = express();
 const PORT = 3030 || 3001;
@@ -46,5 +47,6 @@ app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
 app.use('/tracks', tracks);
 app.use('/upload', upload);
+app.use('/allPlaces', allPlaces);
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });

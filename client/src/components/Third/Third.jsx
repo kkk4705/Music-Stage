@@ -10,9 +10,9 @@ export default function Third() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(addArtThunk());
-  // }, []);
+  useEffect(() => {
+    dispatch(addArtThunk());
+  }, []);
 
   const changeHandler = (e) => {
     setInput(e.target.value);
