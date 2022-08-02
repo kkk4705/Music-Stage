@@ -27,14 +27,14 @@ export default function First() {
         {/* MAIN */}
         {form === 'main' && (
           <div className={styles.formdivbody}>
-            <h3>Платформа для музыкантов и организаторов мероприятий</h3>
+            <p className="text-center fs-2 fw-semibold lh-sm">Платформа для музыкантов и организаторов мероприятий</p>
             {!user && (
               <>
                 <Button funcOnClick={() => setForm('authartist')} type="button" body="МУЗЫКАНТ" />
                 <Button funcOnClick={() => setForm('authowner')} type="button" body="ОРГАНИЗАТОР" />
               </>
             )}
-            <p>листай вниз, чтобы увидеть афишу</p>
+            <p className="text-center fs-4 fw-light lh-sm">листай вниз, чтобы увидеть афишу</p>
           </div>
         )}
 

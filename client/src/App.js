@@ -6,6 +6,7 @@ import First from './components/First/First';
 import FormOut from './components/ui/FormOut/FormOut';
 import Fourth from './components/Fourth/Fourth';
 import PersonalPage from './components/PersonalPage/PersonalPage';
+import PersonalOwner from './components/PersonalOwner/PersonalOwner';
 import Tab from './components/PersonalPage/Table/Table';
 import Second from './components/Second/Second';
 import Third from './components/Third/Third';
@@ -39,7 +40,7 @@ function App() {
         )}
 
         {user?.type === 'owner' && (
-          <Route path="/personalPage" element={<PersonalPage />} />
+          <Route path="/personalPage" element={<PersonalOwner />} />
         )}
         {user && (
           <Route path="/logout" element={<FormOut />} />

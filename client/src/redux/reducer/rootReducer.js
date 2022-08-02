@@ -8,6 +8,8 @@ import typeReducer from './typeReducer';
 import searchReducer from './searchReducer';
 import eventsArtistsReducer from './eventsArtistReducer';
 import genreReducer from './genreReducer';
+import allOwnerReducer from './allOwnerReducer';
+import allPlaceReducer from './allPlaceReducer';
 
 const rootReducer = combineReducers({
   art: allArtistsReducer,
@@ -19,6 +21,8 @@ const rootReducer = combineReducers({
   type: typeReducer,
   genre: genreReducer,
   search: searchReducer,
+  owner: allOwnerReducer,
+  place: allPlaceReducer
 });
 
 export default rootReducer;

@@ -12,7 +12,9 @@ export default function Navi() {
         data-bs-target="#offcanvasWithBothOptions"
         aria-controls="offcanvasWithBothOptions"
       >
-        <img src="././black2logo.png" alt="logo" />
+        <div className="avatar" style={{ width: '100px' }}>
+          <img src="././black2logo.png" alt="logo" />
+        </div>
       </div>
       <div
         className={`${styles.divcanvas} offcanvas offcanvas-end`}
