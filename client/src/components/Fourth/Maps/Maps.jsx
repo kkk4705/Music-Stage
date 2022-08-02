@@ -21,14 +21,14 @@ function Maps() {
     <div className="d-flex flex-column justify-content-center">
       <YMaps query={{
         lang: 'en_RU',
-        // apikey: '63b9b4db-e778-4867-b0b2-65c2fc80454c',
+        apikey: '63b9b4db-e778-4867-b0b2-65c2fc80454c',
       }}
       >
         <p className="text-center fs-1 text-white py-3">Карта площадок</p>
         <div className="d-flex justify-content-center align-items-center rounded-0">
           <Map
-            width="90%"
-            height="60%"
+            width="1000px"
+            height="600px"
             defaultState={defaultPoint}
           >
             <SearchControl options={{
