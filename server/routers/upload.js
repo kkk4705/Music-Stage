@@ -14,10 +14,9 @@ const upload = multer({ storage });
 
 router.post('/add', upload.single('file'), async (req, res) => {
   try {
-    console.log('-----3--->>', req.body.id);
-    console.log('-----3--->>', req.file);
     const { id } = req.body;
-    const path = `public/music/${req.file.originalname}`;
+    const path = req.file.originalname;
+    console.log(path);
     await Track.create({ track: path, artist_id: id });
     const allTracks = await Track.findAll();
     res.json(allTracks);

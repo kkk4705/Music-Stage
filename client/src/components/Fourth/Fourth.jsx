@@ -1,5 +1,6 @@
 import React from 'react';
-import BackgroundColor from '../PersonalPage/PersonalPage';
+import { useDispatch, useSelector } from 'react-redux';
+import Maps from './Maps/Maps';
 
 export default function Fourth() {
   return (
@@ -11,7 +12,7 @@ export default function Fourth() {
         height: '100vh'
       }}
     >
-      работать тут
+      <Maps />
     </div>
   );
 }

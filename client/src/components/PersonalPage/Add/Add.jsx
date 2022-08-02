@@ -12,7 +12,6 @@ function Add() {
 
   const fileHandler = (e) => {
     setFile((prev) => (e.target.files[0]));
-    console.log(file);
   };
 
   const addTrack = (e) => {

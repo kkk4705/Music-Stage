@@ -21,9 +21,12 @@ export default function Third() {
   useEffect(() => {
     dispatch(addArtThunk());
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     dispatch(getGenreThunk());
 >>>>>>> 3
+=======
+>>>>>>> personal-pages
   }, []);
 
   const changeHandler = (e) => {
