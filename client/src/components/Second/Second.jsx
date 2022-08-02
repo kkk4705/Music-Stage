@@ -8,6 +8,7 @@ import Select from './Select';
 import styles from './Second.module.css';
 import { getSearchThunk } from '../../redux/actions/searchAction';
 import { getTypeThunk } from '../../redux/actions/getType';
+import Navi from '../ui/Navi/Navi';
 
 export default function Event() {
   const [input, setInput] = useState('');
@@ -39,6 +40,7 @@ export default function Event() {
         height: '120vh'
       }}
     >
+      <Navi typeLogo="white" />
       <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
         <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex h-40 d-inline-block justify-content-center">
           <div className="w-75 ps-5 ms-5 mt-5 justify-content-center" style={{ backgroundColor: `rgb(${0}, ${36}, ${57})`, fontSize: '100px' }}>
@@ -67,7 +69,7 @@ export default function Event() {
             <div className="d-flex flex-column align-items-end me-5 pe-5">.</div>
           </div>
           <div className="d-flex flex-column justify-content-start ms-4">
-            <img src="whitelogo2.png" width="200px" alt="" />
+            {/* <img src="whitelogo2.png" width="200px" alt="" /> */}
           </div>
         </div>
         <div className={`overflow-auto mt-3 ${styles.over}`} style={{ height: '450px', marginTop: '75px' }}>

@@ -7,7 +7,7 @@ import styles from './First.module.css';
 import Button from '../ui/Button/Button';
 import FormAuth from '../ui/FormAuth/FormAuth';
 import FormReg from '../ui/FormReg/FormReg';
-import NaviMain from '../ui/Navi/NaviMain';
+import Navi from '../ui/Navi/Navi';
 
 export default function First() {
   // useState для перерендера формы
@@ -17,7 +17,7 @@ export default function First() {
 
   return (
     <div id="first" className={styles.headdiv}>
-      <NaviMain />
+      <Navi />
       <div className={styles.imegediv}> </div>
       <div className={styles.formdiv}>
         <div className={styles.formdivlogo}> </div>

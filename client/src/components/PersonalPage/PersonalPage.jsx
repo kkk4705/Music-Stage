@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import { addEventThunk, oneEventThunk } from '../../redux/actions/allEventsAction';
-import NaviPers from '../ui/Navi/NaviPers';
+import Navi from '../ui/Navi/Navi';
 import Tabses from './Table/Table';
 
 export default function PersonalPage() {
@@ -48,7 +48,7 @@ export default function PersonalPage() {
       { (artist) ? (
 
         <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block">
-          <NaviPers />
+          <Navi typeNav="pers" />
           <div className="d-flex p-2 h-40 d-inline-block justify-content-between" onClick={handleOpen}>
             <div className="d-flex flex-column justify-content-around ms-5">
               <div className="d-flex flex-column justify-content-around">

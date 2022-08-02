@@ -5,8 +5,8 @@ import OneArtist from './OneArtist';
 import 'antd/dist/antd.min.css';
 import { findart } from '../../redux/actions/allArtistsAction';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
-import NaviMain from '../ui/Navi/NaviMain';
 import { getGenreThunk } from '../../redux/actions/getGenre';
+import Navi from '../ui/Navi/Navi';
 
 export default function Third() {
   // const art = useSelector((store) => store.art);
@@ -68,7 +68,7 @@ export default function Third() {
         </div>
         <div className="d-flex flex-row-reverse w-75  d-inline-block">
           <img src="./yIMOHPxu2nE.jpeg" alt="third" />
-          <NaviMain typeLogo="white" />
+          <Navi typeLogo="white" />
         </div>
       </div>
     </div>
