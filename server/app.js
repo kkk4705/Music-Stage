@@ -13,6 +13,7 @@ const search = require('./routers/search.router');
 const genres = require('./routers/genre.router');
 // const upload = require('./routers/upload');
 const allPlaces = require('./routers/allPlaces.router');
+const eventStatus = require('./routers/eventStatus.router');
 
 const app = express();
 const PORT = 3030 || 3001;
@@ -55,5 +56,6 @@ app.use('/genres', genres);
 app.use('/search', search);
 app.use('/upload', upload);
 app.use('/allPlaces', allPlaces);
+app.use('/eventStatus', eventStatus);
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });
