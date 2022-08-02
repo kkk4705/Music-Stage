@@ -46,7 +46,7 @@ export default function Third() {
         </div>
         <div className="d-flex flex-row-reverse opacity-75  d-inline-block">
           <img src="./yIMOHPxu2nE.jpeg" alt="third" />
-          <NaviMain />
+          <NaviMain typeLogo="white" />
         </div>
       </div>
     </div>

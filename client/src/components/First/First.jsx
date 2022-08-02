@@ -17,11 +17,10 @@ export default function First() {
 
   return (
     <div id="first" className={styles.headdiv}>
+      <NaviMain />
       <div className={styles.imegediv}> </div>
       <div className={styles.formdiv}>
-        <div className={styles.formdivlogo}>
-          <NaviMain />
-        </div>
+        <div className={styles.formdivlogo}> </div>
         <hr className={styles.hrline} />
 
         {/* MAIN */}
