@@ -20,7 +20,7 @@ export default function First() {
       <div className={styles.imegediv}> </div>
       <div className={styles.formdiv}>
         <div className={styles.formdivlogo}>
-          <NaviMain />
+          {/* <NaviMain /> */}
         </div>
         <hr className={styles.hrline} />
 

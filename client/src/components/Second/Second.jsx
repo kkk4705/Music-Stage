@@ -55,12 +55,9 @@ export default function Event() {
                 .includes(input.toLowerCase()))).map((el) => (
                   <Card />
               ))}
-<<<<<<< HEAD
             <NaviMain />
           </div>
-=======
           </div> */}
->>>>>>> personal-pages
         </div>
       </div>
     </div>

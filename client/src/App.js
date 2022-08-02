@@ -6,7 +6,6 @@ import First from './components/First/First';
 import FormOut from './components/ui/FormOut/FormOut';
 import Fourth from './components/Fourth/Fourth';
 import PersonalPage from './components/PersonalPage/PersonalPage';
-import Tab from './components/PersonalPage/Table/Table';
 import Second from './components/Second/Second';
 import Third from './components/Third/Third';
 import { checkAuth } from './redux/actions/userAction';

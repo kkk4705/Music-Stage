@@ -17,7 +17,6 @@ export default function OneCard({
   };
 
   return (
-
     <div className=" d-flex flex-row mt-3 ms-5" style={{ height: '100px' }} onClick={clickHandler}>
       <div className="avatar ">
         <div>
@@ -28,7 +27,7 @@ export default function OneCard({
         <h5 className="fw-bolder text-black fs-3">{name}</h5>
         <p className=" text-black fs-5">{genre}</p>
       </div>
-      <div className="card-img-overlay d-flex flex-column justify-content-end">
+      <div className="d-flex flex-column justify-content-end">
         <Modal
           centered
           destroyOnClose

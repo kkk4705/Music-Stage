@@ -13,20 +13,20 @@ export default function OneArtist({ input, select }) {
   useEffect(() => {
     dispatch(addArtThunk());
   }, [input]);
-
+  console.log(art);
   return (
     <div>
       {art
         .filter(((el) => el.name
           .toLowerCase()
           .includes(input.toLowerCase()))).map((el) => (
-          <Card
-              id={el.id}
-              key={el.id}
-              name={el.name}
-              genre={el.genre}
-              photo={el.photo}
-            />
+            <Card
+            id={el.id}
+            key={el.id}
+            name={el.name}
+            genre={el.genre}
+            photo={el.photo}
+          />
         ))}
     </div>
   );

@@ -8,14 +8,11 @@ const listArtist = require('./routers/listArtist');
 const authRouter = require('./routers/auth.router');
 const tracks = require('./routers/tracks.router');
 const upload = require('./routers/upload');
-<<<<<<< HEAD
 const types = require('./routers/type.router');
 const search = require('./routers/search.router');
 const genres = require('./routers/genre.router');
 // const upload = require('./routers/upload');
-=======
 const allPlaces = require('./routers/allPlaces.router');
->>>>>>> personal-pages
 
 const app = express();
 const PORT = 3030 || 3001;

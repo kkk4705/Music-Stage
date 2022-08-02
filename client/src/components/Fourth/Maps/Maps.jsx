@@ -27,7 +27,7 @@ function Maps() {
         <p className="text-center fs-1 text-white py-3">Карта площадок</p>
         <div className="d-flex justify-content-center align-items-center rounded-0">
           <Map
-            width="80%"
+            width="90%"
             height="60%"
             defaultState={defaultPoint}
           >
@@ -53,12 +53,10 @@ function Maps() {
             />
             <FullscreenControl />
             <ZoomControl />
-
           </Map>
         </div>
       </YMaps>
     </div>
-
   );
 }
 
