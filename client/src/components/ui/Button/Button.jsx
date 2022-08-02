@@ -6,7 +6,7 @@ export default function Button({
   body, value, type, funcOnClick
 }) {
   return (
-    <div className={styles.divinput}>
+    <div className={styles.divbtn}>
       <button
         className={styles.button}
         onClick={funcOnClick}

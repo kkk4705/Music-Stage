@@ -5,25 +5,24 @@ import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import styles from './Navi.module.css';
 
-export default function Navi() {
+export default function Navi({ typeLogo }) {
   const user = useSelector((state) => state.user);
-
   return (
     <>
       <div
-        style={{
-          position: 'absolute', height: '16rem', width: '12rem', float: 'right'
-        }}
         className={`${styles.divavatar} avatar`}
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"
         aria-controls="offcanvasWithBothOptions"
       >
-        <img src="././black2logo.png" alt="logo" />
+        {typeLogo === 'white' ? (
+          <img src="././whitelogo2.png" alt="logo" />
+        ) : (
+          <img src="././black2logo.png" alt="logo" />
+        )}
       </div>
       <div
-        style={{ backgroundColor: `rgb(${180}, ${180}, ${180})`, }}
-        className="offcanvas offcanvas-end"
+        className={`${styles.divcanvas} offcanvas offcanvas-end`}
         data-bs-scroll="true"
         tabIndex="-1"
         id="offcanvasWithBothOptions"

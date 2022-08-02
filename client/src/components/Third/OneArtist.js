@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable react/jsx-indent-props */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.min.css';
@@ -21,13 +23,13 @@ export default function OneArtist({ input, select }) {
           .toLowerCase()
           .includes(input.toLowerCase()))).map((el) => (
             <Card
-            id={el.id}
-            key={el.id}
-            name={el.name}
-            genre={el.genre}
-            photo={el.photo}
-          />
-        ))}
+              id={el.id}
+              key={el.id}
+              name={el.name}
+              genre={el.genre}
+              photo={el.photo}
+            />
+          ))}
     </div>
   );
 }
