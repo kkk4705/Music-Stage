@@ -53,10 +53,6 @@ function Maps() {
             />
             <FullscreenControl />
             <ZoomControl />
-<<<<<<< HEAD
-=======
-
->>>>>>> 3
           </Map>
         </div>
       </YMaps>

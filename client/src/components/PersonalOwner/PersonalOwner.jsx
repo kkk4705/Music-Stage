@@ -51,7 +51,7 @@ export default function PersonalPage() {
       { (owner) ? (
 
         <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block">
-          {/* <NaviPers /> */}
+          <NaviPers />
           <div className="d-flex p-2 h-40 d-inline-block justify-content-between" onClick={handleOpen}>
             <div className="d-flex flex-column justify-content-around ms-5">
               <div className="d-flex flex-column justify-content-around">
@@ -62,9 +62,9 @@ export default function PersonalPage() {
                 </div>
               </div>
               <div className="d-flex fw-lighter fs-6">Организатор</div>
-              <Link to="/">
+              {/* <Link to="/">
                 <div className=""> empty</div>
-              </Link>
+              </Link> */}
             </div>
             <div className="p-2 flex-fill  ms-5 fs-4 fw-bold">{owner?.name}</div>
           </div>

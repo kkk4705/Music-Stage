@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Third.module.css';
 import OneArtist from './OneArtist';
-import NaviMain from '../ui/Navi/NaviMain';
+// import NaviMain from '../ui/Navi/NaviMain';
 import 'antd/dist/antd.min.css';
 // import { findart } from '../../redux/actions/allArtistsAction';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';

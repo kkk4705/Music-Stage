@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
 import { addEventThunk, oneEventThunk } from '../../redux/actions/allEventsAction';
 import Navi from '../ui/Navi/Navi';
+import NaviPers from '../ui/Navi/NaviPers';
 import Tabses from './Table/Table';
 
 export default function PersonalPage() {
