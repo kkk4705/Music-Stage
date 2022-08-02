@@ -11,6 +11,7 @@ export default function OneCard({
   const find = useSelector((store) => store.find);
 
   const [visible, setVisible] = useState(false);
+
   const clickHandler = () => {
     setVisible(true);
   };

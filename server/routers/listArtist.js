@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-// const { Op } = require('sequelize');
 const router = require('express').Router();
 const {
   Artist, Event, EventStatus, Place,
@@ -8,28 +6,13 @@ const {
 router.get('/', async (req, res) => {
   try {
     const allArtists = await Artist.findAll({ raw: true });
-    console.log(allArtists);
+    // console.log(allArtists);
     res.json({ allArtists });
   } catch (error) {
     console.error(error);
   }
 });
 
-router.post('/find', async (req, res) => {
-  try {
-    const { name } = req.body;
-    console.log(req.body);
-    const findArtist = await Artist.findAll({
-      where: { name },
-      raw: true,
-    });
-    res.json({ findArtist });
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-// НЕ ВЫВОДЯТСЯ ДАННЫЕ ИЗ БД
 router.get('/events', async (req, res) => {
   const allEvents = await EventStatus.findAll({
     include: [{ model: Event, include: Place }, Artist],
@@ -37,6 +20,7 @@ router.get('/events', async (req, res) => {
   });
   res.json({ allEvents });
 });
+
 router.get('/event', async (req, res) => {
   try {
     const oneEvents = await EventStatus.findOne({
@@ -57,7 +41,7 @@ router.post('/:id', async (req, res) => {
       where: { id },
       raw: true,
     });
-    console.error('====>>', oneArtists);
+    // console.error('====>>', oneArtists);
     res.json({ oneArtists });
   } catch (error) {
     console.error(error);

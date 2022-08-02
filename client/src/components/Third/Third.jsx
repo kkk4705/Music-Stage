@@ -5,21 +5,26 @@ import OneArtist from './OneArtist';
 import 'antd/dist/antd.min.css';
 import { findart } from '../../redux/actions/allArtistsAction';
 import { addArtThunk } from '../../redux/actions/allArtistsAction';
+import { getGenreThunk } from '../../redux/actions/getGenre';
 
 export default function Third() {
-  const art = useSelector((store) => store.art);
+  // const art = useSelector((store) => store.art);
+  const genre = useSelector((store) => store.genre);
   const [input, setInput] = useState('');
+  const [select, setSelect] = useState('');
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(addArtThunk());
+    dispatch(getGenreThunk());
   }, []);
 
   const changeHandler = (e) => {
     setInput(e.target.value);
-    console.log('-->', input);
-    // dispatch(findart(input));
-    // dispatch(action());
+  };
+
+  const selectHandler = (e) => {
+    setSelect(e);
   };
 
   return (
@@ -37,16 +42,26 @@ export default function Third() {
             <div className="d-flex flex-column  align-items-center ms-5">
               <p className={`${styles.text}`}>Список</p>
               <p className={`${styles.text2}`}>музыкантов </p>
+
+              <div className="w-75 text-center my-2">
+                <select className="form-select text-center" onChange={selectHandler} id="floatingSelect">
+                  <option selected value={select}>Выберите жанр</option>
+                  {genre.map((el) => (
+                    <option value={el.id}>{el.name}</option>
+                  ))}
+                </select>
+              </div>
+
               <input
                 type="text"
-                className=" w-75 form-control text-center "
+                className=" w-75 form-control text-center my-1"
                 value={input}
                 onChange={changeHandler}
                 placeholder="Введите название"
               />
             </div>
             <div className="overflow-auto d-flex justify-content-center" style={{ height: '450px' }}>
-              <OneArtist input={input} />
+              <OneArtist input={input} select={select} />
             </div>
 
           </div>

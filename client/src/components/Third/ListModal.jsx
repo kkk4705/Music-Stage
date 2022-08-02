@@ -2,18 +2,23 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'antd/dist/antd.min.css';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
+import { artistEventsThunk } from '../../redux/actions/eventsArtist';
+// import artistevents from '../../redux/actions/eventsArtist';
 
-function Lists() {
-  const event = useSelector((store) => store.event);
+function Lists({ id }) {
+  console.log('---><', id);
+  // const event = useSelector((store) => store.event);
+  const eventart = useSelector((store) => store.eventart);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(addEventThunk());
+    dispatch(artistEventsThunk(id));
   }, []);
 
   return (
     <ul className="list-group list-group-flush ">
-      {event.map((el) => (
+      {eventart.map((el) => (
         <li className="list-group-item d-flex justify-content-between align-items-start bg-transparent">
           <div className="avatar ">
             <div className="w-10 me-1 rounded-full ">

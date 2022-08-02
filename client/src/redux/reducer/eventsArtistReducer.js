@@ -1,11 +1,11 @@
-const findArtistReducer = (state = [], action) => {
+const eventsArtistsReducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
-    case 'FIND_ART':
+    case 'ART_EVENT':
       return payload;
     default:
       return state;
   }
 };
 
-export default findArtistReducer;
+export default eventsArtistsReducer;

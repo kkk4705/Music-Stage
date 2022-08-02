@@ -4,9 +4,7 @@ img {
 
 .text {
     font-style: bold;
-    /* margin-top: 15px; */
     font-size: 60px;
-    /* text-align: center; */
     text-transform: uppercase;
     color: #722F2F;
 }
@@ -15,7 +13,7 @@ img {
     font-style: bold;
     font-size: 40px;
     margin-top: -80px;
-    /* text-align: center; */
+    margin-bottom: 15px;
     text-transform: uppercase;
     color: #722F2F;
 }

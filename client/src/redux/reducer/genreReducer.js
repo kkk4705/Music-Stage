@@ -1,11 +1,11 @@
-const allArtistsReducer = (state = [], action) => {
+const genreReducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
-    case 'ADD_ART':
+    case 'GET_GENRE':
       return payload;
     default:
       return state;
   }
 };
 
-export default allArtistsReducer;
+export default genreReducer;

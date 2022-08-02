@@ -52,7 +52,7 @@ export default function Event() {
               .filter(((el) => el['Event.name']
                 .toLowerCase()
                 .includes(input.toLowerCase()))).map((el) => (
-                <Card />
+                  <Card />
               ))}
           </div>
         </div>

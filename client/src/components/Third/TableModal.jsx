@@ -4,14 +4,14 @@ import ListModal from './ListModal';
 
 const { TabPane } = Tabs;
 
-function Tabses() {
+function Tabses({ id }) {
   const onChange = (key) => {
   };
 
   return (
     <Tabs defaultActiveKey="1" onChange={onChange} className="overflow-auto">
       <TabPane tab="Заявки" key="1">
-        <ListModal />
+        <ListModal id={id} />
       </TabPane>
       <TabPane tab="Треки" key="2">
         {/* <Lists /> */}
