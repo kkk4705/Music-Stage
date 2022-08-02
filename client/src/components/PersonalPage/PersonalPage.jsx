@@ -56,7 +56,7 @@ export default function PersonalPage() {
             <div className="d-flex flex-column justify-content-around">
               <div className="avatar">
                 <div className="w-16 rounded-full">
-                  <img src={(currUser) ? `http://localhost:3030/music/${currUser.photo}` : <Spin indicator={antIcon} />} alt="567" />
+                  <img src={(currUser) ? `http://localhost:3030/photo/${currUser.photo}` : <Spin indicator={antIcon} />} alt="567" />
                 </div>
               </div>
             </div>
