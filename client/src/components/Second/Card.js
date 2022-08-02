@@ -22,7 +22,7 @@ export default function Card() {
               <div className="card-title d-flex fs-1 fw-lighter m-0 mt-4 fs-1 text-break">{el['Event.name']}</div>
               <img src={el['Event.photo']} className="d-flex rounded-5 card-img opacity-50 position-absolute" alt="..." />
             </div>
-            <div className="card-img d-flex justify-content-around flex-row mt-5">
+            <div className="card-img d-flex justify-content-around flex-row">
               <div className="cartadiv ms-5 d-flex flex-column justify-content-start align-items-start">
                 <div>
                   <button type="button" className={`knopka d-flex justify-content-start card align-items-start btn btn-outline-secondary ${styles.knopka}`}>Secondary</button>
