@@ -37,7 +37,7 @@ export default function Card() {
               <div className="cartadiv d-flex justify-content-start align-items-start w-25 h-25 ">
                 <div className="card d-flex justify-content-start opacity-50 ">
                   <div style={{ color: `rgb(${0}, ${36}, ${57})` }} className="card-body">
-                    <h6 className="card-text d-flex justify-content-start ">{el['Artist.name']}</h6>
+                    <h6 className="card-text d-flex justify-content-start">{el['Artist.name']}</h6>
                     <p className="card-text">ЗАКЛАДКА</p>
                     <p className="card-text">11 дней без горячей воды</p>
                   </div>
