@@ -16,21 +16,24 @@ export default function Navi() {
           <img src="././black2logo.png" alt="logo" />
         </div>
       </div>
+
       <div
-        className={`${styles.divcanvas} offcanvas offcanvas-end`}
+        className={`${styles.divcanvas} offcanvas offcanvas-end `}
         data-bs-scroll="true"
         tabIndex="-1"
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
-        <div style={{ justifyContent: 'center' }} className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Меню навигации</h5>
-        </div>
-        <div className="offcanvas-body ">
-          <Link to="/"><Button type="button" body="Главная" /></Link>
+        {/* <div style={{ justifyContent: 'center' }} className="offcanvas-header">
+          <h5 className="offcanvas-title fw-lighter fs-2 fst-italic"
+          id="offcanvasWithBothOptionsLabel ">Меню </h5>
+        </div> */}
+        <div className="offcanvas-body fw-lighter fs-2 text-center  d-flex flex-column justify-content-center ">
+          <Link to="/">Главная</Link>
           <p> </p>
-          <Link to="/logout"><Button type="button" body="Выйти" /></Link>
+          <Link to="/logout">Выйти</Link>
         </div>
+
       </div>
     </>
   );

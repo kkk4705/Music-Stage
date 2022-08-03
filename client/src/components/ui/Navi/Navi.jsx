@@ -28,32 +28,33 @@ export default function Navi({ typeLogo, typeNav }) {
         id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel"
       >
-        <div style={{ justifyContent: 'center' }} className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Меню навигации</h5>
-        </div>
+        {/* <div style={{ justifyContent: 'center' }} className="offcanvas-header">
+          <h5 className="offcanvas-title fw-lighter fs-2"
+          id="offcanvasWithBothOptionsLabel">Меню</h5>
+        </div> */}
         {typeNav === 'pers' ? (
 
           // ====== Nav for PersPage ======
-          <div className="offcanvas-body ">
-            <Link to="/"><Button type="button" body="Главная" /></Link>
+          <div className="offcanvas-body fw-lighter fs-3 text-center  d-flex flex-column justify-content-center">
+            <Link to="/">Главная</Link>
             <p> </p>
-            <Link to="/logout"><Button type="button" body="Выйти" /></Link>
+            <Link to="/logout">Выйти</Link>
           </div>
           // ====== Nav for PersPage ======
 
         ) : (
 
           // ====== Nav for MainPage ======
-          <div className="offcanvas-body ">
-            <a href="#first"><Button type="button" body="Главная" /></a>
-            <a href="#second"><Button type="button" body="Афиша событий" /></a>
-            <a href="#third"><Button type="button" body="Список музыкантов" /></a>
-            <a href="#fourth"><Button type="button" body="Карта площадок" /></a>
+          <div className="offcanvas-body fw-lighter fs-2 text-center  d-flex flex-column justify-content-center ">
+            <a href="#first">Главная</a>
+            <a href="#second">Афиша событий</a>
+            <a href="#third">Список музыкантов</a>
+            <a href="#fourth">Карта площадок</a>
             <p> </p>
             {user && (
               <>
-                <Link to="/personalPage"><Button type="button" body="Личный кабинет" /></Link>
-                <Link to="/logout"><Button type="button" body="Выйти" /></Link>
+                <Link to="/personalPage">Личный кабинет</Link>
+                <Link to="/logout">Выйти</Link>
               </>
             )}
           </div>
