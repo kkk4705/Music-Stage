@@ -87,7 +87,6 @@ export default function Event() {
         </div>
         <div className={`overflow-auto mt-3 ${styles.over}`} style={{ height: '450px', marginTop: '75px' }}>
           <div className="d-flex flex-column ">
-            <button type="button" onClick={notify} className={`knopka d-flex justify-content-start card align-items-start btn btn-outline-secondary ${styles.knopka}`}>WOOOOW</button>
             {search
               .filter(((el) => el['Event.name']
                 .toLowerCase()

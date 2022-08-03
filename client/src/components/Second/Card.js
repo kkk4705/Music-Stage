@@ -35,7 +35,7 @@ export default function Card() {
               <div className="cartadiv ms-5 d-flex flex-column justify-content-start align-items-start">
                 <div>
                   {user?.type === 'artist' && (
-                    <button type="button" onClick={notify} className={`knopka d-flex justify-content-start card align-items-start btn btn-outline-secondary ${styles.knopka}`}>Хочу выступать</button>
+                    <button type="button" onClick={() => { addArtEvent(el['Event.id']); }} className={`knopka d-flex justify-content-start card align-items-start btn btn-outline-secondary ${styles.knopka}`}>Хочу выступать</button>
                   )}
                 </div>
                 <div className="card d-flex opacity-50 ">
