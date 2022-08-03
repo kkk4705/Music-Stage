@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Maps from './Maps/Maps';
+import NaviPers from '../ui/Navi/NaviPers';
 
 export default function Fourth() {
   return (
@@ -12,6 +13,7 @@ export default function Fourth() {
         height: '100vh'
       }}
     >
+      <NaviPers />
       <Maps />
     </div>
   );

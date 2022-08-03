@@ -1,7 +1,7 @@
-import React, {
-} from 'react';
+import React, { useState } from 'react';
 import {
-  YMaps, Map, FullscreenControl, SearchControl, ZoomControl, ObjectManager
+  YMaps, Map, FullscreenControl,
+  SearchControl, ZoomControl, ObjectManager, Placemark, GeolocationControl,
 } from 'react-yandex-maps';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -9,9 +9,9 @@ import { getAllPlaceThunk } from '../../../redux/actions/AllPlaces';
 
 function Maps() {
   const dispatch = useDispatch();
-  let places = useSelector((store) => store.place);
-  places = places.filter((elem) => elem.location);
-  console.log(places);
+  const [points, setPoints] = useState([]);
+
+  const places = useSelector((store) => store.place)?.map((elem) => elem.location);
   useEffect(() => {
     dispatch(getAllPlaceThunk());
   }, []);
@@ -19,37 +19,37 @@ function Maps() {
   const defaultPoint = { center: [55.754138, 37.620324], zoom: 11 };
   return (
     <div className="d-flex flex-column justify-content-center">
-      <YMaps query={{
-        lang: 'en_RU',
-        apikey: '63b9b4db-e778-4867-b0b2-65c2fc80454c',
-      }}
+      <YMaps
+        onLoad={(ymaps) => {
+          console.log('ymaps', ymaps.geocode);
+        }}
+        query={{
+          lang: 'en_RU',
+          apikey: '63b9b4db-e778-4867-b0b2-65c2fc80454c',
+        }}
       >
         <p className="text-center fs-1 text-white py-3">Карта площадок</p>
         <div className="d-flex justify-content-center align-items-center rounded-0">
           <Map
-            width="1000px"
-            height="600px"
+            width="85vw"
+            height="70vh"
             defaultState={defaultPoint}
+            modules={['geolocation', 'geocode']}
           >
             <SearchControl options={{
               float: 'right'
             }}
             />
-            <ObjectManager
-              options={{
-                clusterize: true,
-                gridSize: 32
-              }}
-              objects={{
-                openBalloonOnClick: true,
-                preset: 'islands#greenDotIcon'
-              }}
-              clusters={{
-                preset: 'islands#redClusterIcons'
-              }}
-              filter={(object) => object.id % 2 === 0}
-              defaultFeatures={defaultPoint}
-              modules={['objectManager.addon.objectsBalloon', 'objectManager.addon.objectsHint']}
+            <Placemark geometry={['Лубянский проезд, дом 25, стр. 1']} />
+            <Placemark
+              geometry={[55.724758, 37.78521]}
+            />
+            {/* <Placemark geometry={[55.734758, 37.553521]} />
+            <Placemark geometry={[55.684758, 37.5321]} />
+            <Placemark geometry={[55.684758, 37.3521]} /> */}
+            <GeolocationControl options={{
+              float: 'left'
+            }}
             />
             <FullscreenControl />
             <ZoomControl />

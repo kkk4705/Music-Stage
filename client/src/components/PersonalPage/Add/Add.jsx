@@ -28,13 +28,12 @@ function Add() {
       <form onSubmit={addTrack} encType="multipart/form-data">
         <div className="d-flex align-items-stretch">
           <div>
-            <input value={input.file} name="file" onChange={fileHandler} className=" form-control bg-transparent rounded-0" id="formFileSm" type="file" />
+            <input value={input.file} name="file" onChange={fileHandler} className="form-control bg-transparent rounded-0" id="formFileSm" type="file" />
           </div>
           <div><button type="submit" className="btn bg-transparent rounded-0 text-reset">Добавить</button></div>
         </div>
       </form>
       <hr />
-
     </div>
   );
 }

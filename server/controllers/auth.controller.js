@@ -1,14 +1,24 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
+const multer = require('multer');
 const { Artist, Owner } = require('../db/models');
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, './public/music/');
+  },
+  filename(req, file, cb) {
+    cb(null, `${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
 
 const signUp = async (req, res) => {
   const {
     name,
     mail,
     pass,
-    photo,
     instagram,
     phone,
     info,
@@ -17,6 +27,7 @@ const signUp = async (req, res) => {
     genre_id_fs,
     telegram,
   } = req.body;
+  const photo = req.file.filename;
 
   // signUp artist
   if (name && mail && pass && photo && instagram && phone && info && vk && genre && genre_id_fs) {
@@ -71,7 +82,7 @@ const signUp = async (req, res) => {
       return res.sendStatus(500);
     }
   }
-  return res.sendStatus(401);
+  return res.sendStatus(418);
 };
 
 const signIn = async (req, res) => {

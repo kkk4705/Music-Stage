@@ -30,7 +30,7 @@ function Lists2() {
               его описание
             </div>
             <div className="me-auto ">
-              <audio controls>
+              <audio controls className="p-3 bg-transparent">
                 <track
                   default
                   kind="captions"
