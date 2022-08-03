@@ -1,17 +1,4 @@
 import { Tabs } from 'antd';
-<<<<<<< HEAD
-import { Button, Drawer, } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { SearchOutlined } from '@ant-design/icons';
-import {
-  FileAddOutlined,
-} from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
-import Add from '../Add/Add';
-import Lists from '../List/List';
-import Lists2 from '../List/List2';
-import Edit from '../Edit/Edit';
-=======
 // import { Button, Drawer, } from 'antd';
 import React, { useEffect, useState } from 'react';
 // import { SearchOutlined } from '@ant-design/icons';
@@ -24,7 +11,6 @@ import Place from '../List/List';
 import Lists2 from '../List/Event';
 import Edit from '../Edit/Edit';
 import RequesArt from '../List/RequestArt';
->>>>>>> 3
 import { allTrackThunk } from '../../../redux/actions/getTrack';
 
 const { TabPane } = Tabs;

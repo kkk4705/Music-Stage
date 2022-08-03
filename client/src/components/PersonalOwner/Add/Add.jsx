@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTrackThunk, allTrackThunk } from '../../../redux/actions/getTrack';
-<<<<<<< HEAD
-
-function Add() {
-  const dispatch = useDispatch();
-  const [input, setInput] = useState({});
-  const [file, setFile] = useState({});
-
-  const user = useSelector((store) => store.user);
-  const track = useSelector((store) => store.track);
-=======
 import { getTypeThunk } from '../../../redux/actions/getType';
 
 function Add() {
@@ -21,7 +11,6 @@ function Add() {
   const type = useSelector((store) => store.type);
   const user = useSelector((store) => store.user);
   const places = place?.filter((elem) => elem.owner_id === user.id)[0];
->>>>>>> 3
 
   const fileHandler = (e) => {
     setFile((prev) => (e.target.files[0]));
