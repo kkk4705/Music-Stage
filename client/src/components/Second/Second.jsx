@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
 import Card from './Card';
 import ModalEvent from './ModalEvent';
@@ -9,11 +10,12 @@ import styles from './Second.module.css';
 import { getSearchThunk } from '../../redux/actions/searchAction';
 import { getTypeThunk } from '../../redux/actions/getType';
 import Navi from '../ui/Navi/Navi';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Event() {
   const [input, setInput] = useState('');
   const [select, setSelect] = useState('');
-  console.log(select);
+  const notify = () => toast('Вы уже отправили заявку на участие. Отменить заявку можно в личном кабинете.');
 
   const dispatch = useDispatch();
   // const changeType = (e) => {
@@ -41,6 +43,17 @@ export default function Event() {
       }}
     >
       <Navi typeLogo="white" />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover
+      />
       <div className="d-flex flex-column mb-3 w-100 h-100 d-inline-block p-3">
         <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className="d-flex h-40 d-inline-block justify-content-center">
           <div className="w-75 ps-5 ms-5 mt-5 justify-content-center" style={{ backgroundColor: `rgb(${0}, ${36}, ${57})`, fontSize: '100px' }}>

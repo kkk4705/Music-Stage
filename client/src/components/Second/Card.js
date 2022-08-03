@@ -1,17 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import { addEventThunk } from '../../redux/actions/allEventsAction';
+import { addEventStatusThunk } from '../../redux/actions/eventStatusAction';
 import ModalEvent from './ModalEvent';
 import styles from './Second.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Card() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(addEventThunk());
   }, []);
+  const user = useSelector((store) => store.user);
   const event = useSelector((store) => store.event);
   // const eventType = useSelector((store) => store.one);
   // console.log(event);
+  const notify = () => toast('Wow so easy!');
+
+  const addArtEvent = (event_id) => {
+    dispatch(addEventStatusThunk({ event_id, artist_id: user.id, message: 'test' }));
+  };
 
   return (
     <div style={{ backgroundColor: `rgb(${0}, ${36}, ${57})` }} className={`cardHeight d-flex flex-column justify-content-center align-items-center mt-5${styles.cardHeight}`}>
@@ -25,7 +34,9 @@ export default function Card() {
             <div className="card-img d-flex justify-content-around flex-row">
               <div className="cartadiv ms-5 d-flex flex-column justify-content-start align-items-start">
                 <div>
-                  <button type="button" className={`knopka d-flex justify-content-start card align-items-start btn btn-outline-secondary ${styles.knopka}`}>Secondary</button>
+                  {user?.type === 'artist' && (
+                    <button type="button" onClick={() => { addArtEvent(el['Event.id']); }} className={`knopka d-flex justify-content-start card align-items-start btn btn-outline-secondary ${styles.knopka}`}>Хочу выступать</button>
+                  )}
                 </div>
                 <div className="card d-flex opacity-50 ">
                   <div style={{ color: `rgb(${0}, ${36}, ${57})` }} className="card-body">
