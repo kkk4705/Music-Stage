@@ -1,15 +1,20 @@
 import React from 'react';
-import BackgroundColor from '../PersonalPage/PersonalPage';
+import { useDispatch, useSelector } from 'react-redux';
+import Maps from './Maps/Maps';
+import NaviPers from '../ui/Navi/NaviPers';
 
 export default function Fourth() {
   return (
-    <div style={{
-      backgroundColor: `rgb(${25}, ${27}, ${22})`,
-      width: '100vw',
-      height: '100vh'
-    }}
+    <div
+      id="fourth"
+      style={{
+        backgroundColor: `rgb(${25}, ${27}, ${22})`,
+        width: '100vw',
+        height: '100vh'
+      }}
     >
-      работать тут
+      <NaviPers />
+      <Maps />
     </div>
   );
 }

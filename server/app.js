@@ -4,10 +4,15 @@ const path = require('path');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-// const artistRouter = require('./routes/artist-page.router');
 const listArtist = require('./routers/listArtist');
 const authRouter = require('./routers/auth.router');
+const tracks = require('./routers/tracks.router');
+const upload = require('./routers/upload');
+const types = require('./routers/type.router');
+const search = require('./routers/search.router');
+const genres = require('./routers/genre.router');
 // const upload = require('./routers/upload');
+const allPlaces = require('./routers/allPlaces.router');
 
 const app = express();
 const PORT = 3030 || 3001;
@@ -18,7 +23,7 @@ app.use(
     credentials: true,
   }),
 );
-app.use(express.static(path.join(__dirname, 'music')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -36,8 +41,19 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+app.use((req, res, next) => {
+  res.locals.user = req.session?.user;
+  // console.log('-2---->>>>', res.locals.user);
+  next();
+});
+
 app.use('/auth', authRouter);
 app.use('/listArtist', listArtist);
-// app.use('/upload', upload);
+app.use('/tracks', tracks);
+app.use('/types', types);
+app.use('/genres', genres);
+app.use('/search', search);
+app.use('/upload', upload);
+app.use('/allPlaces', allPlaces);
 
 app.listen(PORT, () => { console.log(`Server running on port ${PORT}`); });

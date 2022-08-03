@@ -1,0 +1,34 @@
+.over {
+    margin-top: 250px !important;
+}
+
+.ono {
+    height: 400px !important;
+    width: 1000px !important;
+}
+
+.fontword1 {
+    font-size: 100px;
+    padding-left: 130px;
+}
+
+.fontword2 {
+    font-size: 60px;
+    padding-left: 150px;
+}
+
+.knopka {
+    height: 7px;
+    width: 100px;
+    margin-bottom: 120px;
+    font-size: 10px;
+}
+
+.selectorPad {
+    margin-left: 130px;
+}
+.knopka{
+    height: 7px !important;
+    width: 100px !important;  
+    margin-bottom: 100px !important;
+}

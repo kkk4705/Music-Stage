@@ -1,39 +1,41 @@
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styles from './First.module.css';
-import Button from './ui/Button/Button';
-import FormAuth from './ui/FormAuth/FormAuth';
-import FormReg from './ui/FormReg/FormReg';
+import Button from '../ui/Button/Button';
+import FormAuth from '../ui/FormAuth/FormAuth';
+import FormReg from '../ui/FormReg/FormReg';
+import Navi from '../ui/Navi/Navi';
 
 export default function First() {
   // useState для перерендера формы
   const [form, setForm] = useState('main');
 
-  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   return (
-    <div className={styles.headdiv}>
+    <div id="first" className={styles.headdiv}>
+      <Navi />
       <div className={styles.imegediv}> </div>
       <div className={styles.formdiv}>
-        <div className={styles.formdivlogo}>
-          <img src="/blacklogo.png" alt="blacklogo" />
-          {/* {user &&
-          <div>
-            <p>Привет, {'user'}</p>
-            <a href="#">Выйти</a>
-          </div>} */}
-        </div>
+        <div className={styles.formdivlogo}> </div>
         <hr className={styles.hrline} />
 
         {/* MAIN */}
         {form === 'main' && (
           <div className={styles.formdivbody}>
-            <h3>Платформа для музыкантов и организаторов мероприятий</h3>
-            <Button funcOnClick={() => setForm('authartist')} type="button" body="МУЗЫКАНТ" />
-            <Button funcOnClick={() => setForm('authowner')} type="button" body="ОРГАНИЗАТОР" />
-            <p>листай вниз, чтобы увидеть афишу</p>
+            <p className="text-center fs-2 fw-semibold lh-sm mt-5">Платформа для музыкантов и организаторов мероприятий</p>
+            {!user && (
+              <div className="">
+                <Button funcOnClick={() => setForm('authartist')} type="button" body="МУЗЫКАНТ" />
+                <Button funcOnClick={() => setForm('authowner')} type="button" body="ОРГАНИЗАТОР" />
+              </div>
+            )}
+            <div className="mb-5">
+              <p className="text-center fs-4 fw-light lh-sm ">листай вниз, чтобы увидеть афишу</p>
+            </div>
           </div>
         )}
 

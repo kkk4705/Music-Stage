@@ -1,17 +1,40 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTrackThunk, allTrackThunk } from '../../../redux/actions/getTrack';
+
 function Add() {
+  const dispatch = useDispatch();
+  const [input, setInput] = useState({});
+  const [file, setFile] = useState({});
+
+  const user = useSelector((store) => store.user);
+  const track = useSelector((store) => store.track);
+
+  const fileHandler = (e) => {
+    setFile((prev) => (e.target.files[0]));
+  };
+
+  const addTrack = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('id', user.id);
+    dispatch(getTrackThunk(user, formData));
+    setFile({});
+  };
+
   return (
-    <ul className="list-group list-group-flush bg-transparent w-50">
-      <form>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">Название</label>
-          <input type="text" className="form-control bg-transparent rounded-0" id="" placeholder="Название" />
-          <input className="form-control bg-transparent rounded-0 my-3" id="formFileSm" type="file" />
-          <button type="submit" className="btn bg-transparent rounded-0 my-3">Добавить</button>
+    <div className="">
+      <form onSubmit={addTrack} encType="multipart/form-data">
+        <div className="d-flex align-items-stretch">
+          <div>
+            <input value={input.file} name="file" onChange={fileHandler} className="form-control bg-transparent rounded-0" id="formFileSm" type="file" />
+          </div>
+          <div><button type="submit" className="btn bg-transparent rounded-0 text-reset">Добавить</button></div>
         </div>
       </form>
-
       <hr />
-    </ul>
+    </div>
   );
 }
 

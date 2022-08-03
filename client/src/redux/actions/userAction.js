@@ -11,23 +11,19 @@ export const deleteUser = () => ({
 });
 
 export const signUp = (payload, navigate) => async (dispatch) => {
+  console.log(payload);
   const response = await fetch(endPoints.signUp(), {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
     credentials: 'include',
-    body: JSON.stringify(payload),
+    body: payload,
   });
   if (response.status === 200) {
     const user = await response.json();
     dispatch(setUser(user));
-    console.log('проверка type user, user=>', user);
-    if (user.type === 'artist') {
-      navigate('/artist');
-    } else if (user.type === 'owner') {
-      navigate('/owner');
-    }
+    navigate('/personalPage');
   } else {
     navigate('/');
   }
@@ -45,9 +41,7 @@ export const signIn = (payload, navigate) => async (dispatch) => {
   if (response.status === 200) {
     const user = await response.json();
     dispatch(setUser(user));
-    navigate('/');
-  } else {
-    navigate('/auth/signin');
+    navigate('/personalPage');
   }
 };
 
